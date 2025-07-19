@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags for SEO and proper rendering -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The professional portfolio of Pranay Rishi, a cybersecurity specialist and national-level debater.">
+
+    <title>Pranay Rishi | Cybersecurity & Communication</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Library: Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide-static@latest/dist/lucide.min.js" defer></script>
+
+    <!-- Embedded CSS Styles -->
+    <style>
+        /* ===== GLOBAL STYLES & VARIABLES ===== */
+        :root {
+            --primary-text: #2d3748;
+            --secondary-text: #718096;
+            --background: #ffffff;
+            --accent-color: #4299e1;
+            --accent-hover: #2b6cb0;
+            --card-background: #ffffff;
+            --section-background: #f7fafc;
+            --border-color: #e2e8f0;
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Lato', sans-serif;
+            --nav-height: 70px;
+        }
+
+        ::selection { background-color: var(--accent-color); color: #ffffff; }
+        html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background);
+            color: var(--primary-text);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .content-section { padding: 100px 0; }
+        .section-title {
+            font-family: var(--font-heading);
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+        }
+        
+        /* ===== NAVIGATION BAR ===== */
+        .main-nav {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: var(--nav-height); }
+        .nav-brand { font-family: var(--font-heading); font-size: 1.3rem; text-decoration: none; color: var(--primary-text); }
+        .main-nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+        .main-nav ul a { text-decoration: none; color: var(--primary-text); font-weight: 700; font-size: 1rem; position: relative; padding: 5px 0; transition: color 0.3s ease; }
+        .main-nav ul a:hover { color: var(--accent-color); }
+        .main-nav ul a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background-color: var(--accent-color); transition: width 0.3s ease; }
+        .main-nav ul a:hover::after { width: 100%; }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding-top: calc(100px + var(--nav-height));
+            padding-bottom: 100px;
+            background-color: var(--section-background);
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+        }
+        .hero-layout { display: flex; align-items: center; gap: 60px; }
+        .hero-text { flex: 1; text-align: left; }
+        .hero-image-container { flex-shrink: 0; }
+        .profile-picture {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid var(--background);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-text > * { animation: fadeIn 0.8s both; }
+        .hero-subtitle { animation-delay: 0.2s; font-size: 1.2rem; font-weight: 700; color: var(--accent-color); margin-bottom: 10px; }
+        .hero-title { animation-delay: 0.4s; font-family: var(--font-heading); font-size: 3.8rem; margin: 0; line-height: 1.2; }
+        .hero-bio { animation-delay: 0.6s; margin: 25px 0 35px; font-size: 1.1rem; color: var(--secondary-text); }
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 14px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            border: none;
+        }
+        .btn:hover { background-color: var(--accent-hover); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); }
+        .hero .btn { animation-delay: 0.8s; }
+
+        /* ===== ACHIEVEMENTS TIMELINE ===== */
+        .timeline { position: relative; max-width: 700px; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--border-color); top: 0; bottom: 0; left: 50%; margin-left: -2px; }
+        .timeline-item { padding: 10px 40px; position: relative; width: 50%; }
+        .timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: white; border: 4px solid var(--accent-color); top: 25px; border-radius: 50%; z-index: 1; }
+        .left { left: 0; }
+        .right { left: 50%; }
+        .right::after { left: -10px; }
+        .timeline-content { padding: 20px 30px; background-color: var(--card-background); border: 1px solid var(--border-color); border-radius: 8px; }
+        .timeline-content h3 { font-family: var(--font-heading); margin-top: 0; }
+
+        /* ===== PROJECTS SECTION ===== */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .project-card {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            color: white;
+            transition: transform 0.4s ease;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .project-card:hover { transform: scale(1.03); }
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 60%);
+            z-index: 1;
+        }
+        .project-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .project-card:hover .project-bg { transform: scale(1.1); }
+        .project-content { position: relative; z-index: 2; }
+        .project-title { font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 10px; }
+        .project-description { font-size: 1rem; opacity: 0.9; margin-bottom: 20px; }
+        .project-tech { display: flex; flex-wrap: wrap; gap: 10px; }
+        .project-tech span { background-color: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; }
+
+        /* ===== AI COACH SECTION ===== */
+        .ai-coach-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        .ai-card {
+            background-color: var(--card-background);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .ai-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .ai-card p {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            font-family: var(--font-body);
+            font-size: 1rem;
+        }
+
+        /* ===== MODAL STYLES ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-button:hover, .close-button:focus {
+            color: black;
+        }
+        #modal-result h3 {
+            font-family: var(--font-heading);
+            margin-top: 0;
+        }
+        #modal-result pre {
+            background-color: var(--section-background);
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Courier New', Courier, monospace;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--accent-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+
+        /* ===== SPOTLIGHT/TESTIMONIALS ===== */
+        .spotlight-section { background-color: var(--section-background); }
+        .testimonial { background-color: var(--card-background); border-left: 5px solid var(--accent-color); padding: 30px; margin: 0 auto 20px; max-width: 700px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .testimonial blockquote { margin: 0; font-size: 1.1rem; font-style: italic; }
+        .testimonial footer { margin-top: 15px; font-weight: 700; text-align: right; color: var(--accent-color); }
+
+        /* ===== FOOTER SECTION ===== */
+        .footer { background-color: var(--primary-text); color: #ecf0f1; text-align: center; padding: 80px 20px; }
+        .footer .section-title, .footer p { color: #ffffff; }
+        .footer p { max-width: 600px; margin: 0 auto 35px; font-size: 1.1rem; }
+        .social-links { margin-top: 35px; }
+        .social-links a { color: #ffffff; display: inline-block; text-decoration: none; margin: 0 15px; transition: all 0.3s ease; }
+        .social-links a:hover { color: var(--accent-color); transform: scale(1.1); }
+        .social-links i { width: 28px; height: 28px; }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .main-nav ul { display: none; }
+            .hero-layout { flex-direction: column; text-align: center; }
+            .hero-text { text-align: center; }
+            .profile-picture { width: 200px; height: 200px; }
+            .hero-title { font-size: 2.8rem; }
+            .section-title { font-size: 2.2rem; }
+            .timeline::after { left: 15px; }
+            .timeline-item { width: 100%; padding-left: 50px; padding-right: 15px; }
+            .timeline-item::before { display: none; }
+            .left::after, .right::after { left: 5px; }
+            .right { left: 0%; }
+            .ai-coach-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="main-nav">
+        <div class="container nav-container">
+            <a href="#" class="nav-brand">Pranay Rishi</a>
+            <ul>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#ai-coach">✨ AI Coach</a></li>
+                <li><a href="#spotlight">Spotlight</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-layout">
+            <div class="hero-text">
+                <p class="hero-subtitle">Cybersecurity Analyst & Debater</p>
+                <h1 class="hero-title">Pranay Rishi</h1>
+                <p class="hero-bio">
+                    I build and protect the digital world. As a Computer Engineering student, I'm driven by the challenge of solving complex security puzzles and crafting elegant software solutions. My experience spans from leading student tech initiatives to competing in national debates, teaching me that the best defense is a well-structured plan and clear communication.
+                </p>
+                <a href="#contact" class="btn">Get In Touch</a>
+            </div>
+            <div class="hero-image-container">
+                <!-- 
+                    *******************************************************************
+                    * IMAGE EMBEDDED: Your photo is now part of the code.             *
+                    * It will load correctly without needing a separate file upload.  *
+                    *******************************************************************
+                -->
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAJqAmIDASIAAhEBAxEB/8QAGwABAAIDAQEAAAAAAAAAAAAAAAUGAwQHAgH/xABEEAABAwMCAwQHBgMHAwQCAwEBAgMEAAUGEQcSITETQVEiMmFxFIGRChUjUpKhsRYzwdEkQnLh8PFjorJDY3OCg5L/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAQIDBP/EACERAQEAAgMAAwEBAQEBAAAAAAABAhESIQMxQRNRIgVhcZH/2gAMAwEAAhEDEQA/APqmlKUCuL7q2y2t11ZwlIKifYCu1U/iFhT+G3ZpBwpbDiQfYpIoPn7hXj7iLiLiS4W2Oq2N2+C66h1S2F70pSspGCHAM4A7J7693uO8b4ftNtu12kW2XapLyGVmKwtpbSljKclTitySRjGBj3r5q4T4qY4F4Z4quzMdyXcF3JEVhls4ytTakqUfYJBOfevU8a3/AIy4o4ZsM7iG3xLbbJ1yYEdqMSpbSlK2EKUT3G4gkADp0oPqGlKVQpSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSl-
+alt="Pranay Rishi professional headshot" 
+                     class="profile-picture">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== ACHIEVEMENTS SECTION ===== -->
+        <section id="achievements" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Career Milestones</h2>
+                <div class="timeline">
+                    <div class="timeline-item left"><div class="timeline-content"><h3>Best Debater Award</h3><p>Honored as the top individual at the Manthan 2023 National Debate Championship for rhetoric and persuasion.</p></div></div>
+                    <div class="timeline-item right"><div class="timeline-content"><h3>Offensive Security Training</h3><p>Completed the Offensive Security module on TryHackMe, gaining hands-on ethical hacking experience.</p></div></div>
+                    <div class="timeline-item left"><div class="timeline-content"><h3>National Debate Runner-Up</h3><p>Led the LPU team to a Runner-Up finish at the AMU National Debate Championship 2024.</p></div></div>
+                    <div class="timeline-item right"><div class="timeline-content"><h3>Defensive Security Training</h3><p>Completed the Defensive Security module on TryHackMe, mastering SIEM tools and incident response.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJECTS SECTION ===== -->
+        <section id="projects" class="content-section" style="background-color: var(--section-background);">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="project-grid">
+                    <article class="project-card">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=2070&auto=format&fit=crop" alt="Abstract technology background" class="project-bg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/2d3748?text=Image+Not+Found';">
+                        <div class="project-content">
+                            <h3 class="project-title">IoT Security Sensor</h3>
+                            <p class="project-description">Engineered a real-time fire/smoke detection system with an Arduino, exploring hardware and software security intersections.</p>
+                            <div class="project-tech"><span>Arduino</span><span>C++</span><span>Hardware</span></div>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?q=80&w=2089&auto=format&fit=crop" alt="Code on a screen" class="project-bg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/2d3748?text=Image+Not+Found';">
+                        <div class="project-content">
+                            <h3 class="project-title">Responsive Web App</h3>
+                            <p class="project-description">Collaborated in a team to build a user-centric virtual zoo web app, focusing on creating a fluid and interactive front-end.</p>
+                            <div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070&auto=format&fit=crop" alt="Newspapers and data" class="project-bg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/2d3748?text=Image+Not+Found';">
+                        <div class="project-content">
+                            <h3 class="project-title">Depth Files Channel</h3>
+                            <p class="project-description">Founded and produced content for a YouTube channel focused on data-driven investigations, honing skills in research and digital communication.</p>
+                            <div class="project-tech"><span>Research</span><span>Data Analysis</span><span>Video</span></div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== AI COACH SECTION ===== -->
+        <section id="ai-coach" class="content-section">
+            <div class="container">
+                <h2 class="section-title">✨ AI-Powered Career Coach</h2>
+                <div class="ai-coach-grid">
+                    <div class="ai-card">
+                        <h3>AI Cover Letter Assistant</h3>
+                        <p>Need a compelling introduction? Let AI draft a personalized cover letter intro for you. Just fill in the details below.</p>
+                        <div class="form-group">
+                            <label for="userName">Your Name (Hiring Manager)</label>
+                            <input type="text" id="userName" placeholder="e.g., Jane Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="companyName">Company Name</label>
+                            <input type="text" id="companyName" placeholder="e.g., Google">
+                        </div>
+                        <div class="form-group">
+                            <label for="jobRole">Job Role</label>
+                            <input type="text" id="jobRole" placeholder="e.g., Cybersecurity Intern">
+                        </div>
+                        <button id="generateIntroBtn" class="btn">Generate Intro</button>
+                    </div>
+                    <div class="ai-card">
+                        <h3>AI Project Idea Generator</h3>
+                        <p>Looking for inspiration? Get project ideas tailored to my skills that would be a great addition to any portfolio.</p>
+                        <p><strong>Skills considered:</strong> Cybersecurity, Public Speaking, Web Development, Research, Leadership.</p>
+                        <button id="generateProjectsBtn" class="btn">Suggest Project Ideas</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SPOTLIGHT SECTION ===== -->
+        <section id="spotlight" class="content-section" style="background-color: var(--section-background);">
+            <div class="container">
+                <h2 class="section-title">In the Spotlight</h2>
+                <div class="testimonial">
+                    <blockquote>Cheers to Pranay Rishi... for earning the title of "Best Debater" with unmatched rhetoric and persuasion skills.</blockquote>
+                    <footer>— LPU School of Computer Science Engineering</footer>
+                </div>
+                <div class="testimonial">
+                    <blockquote>LPU B.Tech. CSE students Pranay Rishi and Priya Jantwal have emerged as Runners-Up in "Manthan", the prestigious National Debate Championship... leaving a significant mark.</blockquote>
+                    <footer>— Lovely Professional University (Official)</footer>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== CONTACT & FOOTER SECTION ===== -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <p>I'm actively seeking internship roles and am always open to discussing new projects and collaboration opportunities. If you think I'd be a good fit for your team, I'd love to hear from you.</p>
+            <a href="mailto:pranayrishi1418@gmail.com" class="btn">pranayrishi1418@gmail.com</a>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/pranay-rishi-atpr3105/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i data-lucide="linkedin"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i data-lucide="github"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Download Resume"><i data-lucide="file-text"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- The Modal -->
+    <div id="aiModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modal-result">
+                <!-- AI result will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal handling
+        const modal = document.getElementById('aiModal');
+        const modalResult = document.getElementById('modal-result');
+        const closeButton = document.querySelector('.close-button');
+
+        closeButton.onclick = () => { modal.style.display = 'none'; };
+        window.onclick = (event) => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        };
+
+        function showLoader() {
+            modalResult.innerHTML = '<div class="loader"></div>';
+            modal.style.display = 'block';
+        }
+
+        function showResult(title, content) {
+            modalResult.innerHTML = `<h3>${title}</h3><pre>${content}</pre>`;
+        }
+        
+        function showError(message) {
+             modalResult.innerHTML = `<h3>Error</h3><p>${message}</p>`;
+        }
+
+        // Gemini API call logic
+        async function callGemini(prompt) {
+            showLoader();
+            const apiKey = ""; // API key is handled by the environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+            
+            const payload = {
+                contents: [{ role: "user", parts: [{ text: prompt }] }]
+            };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API Error: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    return result.candidates[0].content.parts[0].text;
+                } else {
+                    if (result.promptFeedback && result.promptFeedback.blockReason) {
+                         throw new Error(`Request was blocked: ${result.promptFeedback.blockReason}. Please adjust your input.`);
+                    }
+                    throw new Error("Unexpected API response format.");
+                }
+            } catch (error) {
+                console.error("Gemini API call failed:", error);
+                showError(error.message || "An error occurred while contacting the AI. Please try again.");
+                return null;
+            }
+        }
+
+        // Event listener for Cover Letter Intro
+        document.getElementById('generateIntroBtn').addEventListener('click', async () => {
+            const userName = document.getElementById('userName').value;
+            const companyName = document.getElementById('companyName').value;
+            const jobRole = document.getElementById('jobRole').value;
+
+            if (!userName || !companyName || !jobRole) {
+                alert("Please fill in all fields for the cover letter intro.");
+                return;
+            }
+
+            const prompt = `My name is Pranay Rishi. I am a cybersecurity student, a national-level debater, and a proven leader. Generate a short, compelling, and professional introductory paragraph (around 4-5 sentences) for a cover letter. I am applying for the ${jobRole} role at ${companyName}. The hiring manager's name is ${userName}. The tone should be confident and highlight my unique blend of technical cybersecurity skills and strong communication/leadership abilities from debating.`;
+            
+            const resultText = await callGemini(prompt);
+            if (resultText) {
+                showResult("✨ AI-Generated Cover Letter Intro", resultText);
+            }
+        });
+
+        // Event listener for Project Ideas
+        document.getElementById('generateProjectsBtn').addEventListener('click', async () => {
+            const prompt = `I am Pranay Rishi, a student with skills in Cybersecurity, National-Level Debating, Public Speaking, Web Development, Research, and Leadership. Suggest three unique and impressive portfolio project ideas that creatively combine at least two of these skills. For each idea, provide a title, a brief 2-sentence description, and list the key skills demonstrated. Format the output clearly.`;
+
+            const resultText = await callGemini(prompt);
+            if (resultText) {
+                showResult("✨ AI-Generated Project Ideas", resultText);
+            }
+        });
+
+    </script>
+
+</body>
+</html>

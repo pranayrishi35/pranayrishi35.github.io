@@ -1,552 +1,622 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta Tags for SEO and proper rendering -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The professional portfolio of Pranay Rishi, a cybersecurity specialist and national-level debater.">
-
-    <title>Pranay Rishi | Cybersecurity & Communication</title>
-
-    <!-- Google Fonts -->
+    <title>Pranay Rishi | Cybersecurity & Tech Leader</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Icon Library: Lucide Icons -->
-    <script src="https://cdn.jsdelivr.net/npm/lucide-static@latest/dist/lucide.min.js" defer></script>
-
-    <!-- Embedded CSS Styles -->
     <style>
-        /* ===== GLOBAL STYLES & VARIABLES ===== */
+        /* CSS Reset and Global Styles */
         :root {
-            --primary-text: #2d3748;
-            --secondary-text: #718096;
-            --background: #ffffff;
-            --accent-color: #4299e1;
-            --accent-hover: #2b6cb0;
-            --card-background: #ffffff;
-            --section-background: #f7fafc;
-            --border-color: #e2e8f0;
-            --font-heading: 'Poppins', sans-serif;
-            --font-body: 'Lato', sans-serif;
-            --nav-height: 70px;
+            --bg-color: #f4f7f9;
+            --primary-color: #0077ff;
+            --card-bg-color: rgba(255, 255, 255, 0.6);
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --border-color: rgba(0, 119, 255, 0.15);
+            --shadow-color: rgba(0, 119, 255, 0.08);
+            --shadow-hover-color: rgba(0, 119, 255, 0.2);
+            --gradient: linear-gradient(45deg, #0077ff, #00c6ff);
         }
 
-        ::selection { background-color: var(--accent-color); color: #ffffff; }
-        html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
-        body {
-            font-family: var(--font-body);
-            background-color: var(--background);
-            color: var(--primary-text);
-            line-height: 1.7;
+        * {
             margin: 0;
             padding: 0;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            box-sizing: border-box;
+            cursor: none; /* Hide default cursor */
         }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        .content-section { padding: 100px 0; }
-        .section-title {
-            font-family: var(--font-heading);
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 60px;
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
         }
         
-        /* ===== NAVIGATION BAR ===== */
-        .main-nav {
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; height: var(--nav-height); }
-        .nav-brand { font-family: var(--font-heading); font-size: 1.3rem; text-decoration: none; color: var(--primary-text); }
-        .main-nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
-        .main-nav ul a { text-decoration: none; color: var(--primary-text); font-weight: 700; font-size: 1rem; position: relative; padding: 5px 0; transition: color 0.3s ease; }
-        .main-nav ul a:hover { color: var(--accent-color); }
-        .main-nav ul a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background-color: var(--accent-color); transition: width 0.3s ease; }
-        .main-nav ul a:hover::after { width: 100%; }
-
-        /* ===== HERO SECTION ===== */
-        .hero {
-            padding-top: calc(100px + var(--nav-height));
-            padding-bottom: 100px;
-            background-color: var(--section-background);
-            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-        }
-        .hero-layout { display: flex; align-items: center; gap: 60px; }
-        .hero-text { flex: 1; text-align: left; }
-        .hero-image-container { flex-shrink: 0; }
-        .profile-picture {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 8px solid var(--background);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .hero-text > * { animation: fadeIn 0.8s both; }
-        .hero-subtitle { animation-delay: 0.2s; font-size: 1.2rem; font-weight: 700; color: var(--accent-color); margin-bottom: 10px; }
-        .hero-title { animation-delay: 0.4s; font-family: var(--font-heading); font-size: 3.8rem; margin: 0; line-height: 1.2; }
-        .hero-bio { animation-delay: 0.6s; margin: 25px 0 35px; font-size: 1.1rem; color: var(--secondary-text); }
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #ffffff;
-            padding: 14px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            border: none;
-        }
-        .btn:hover { background-color: var(--accent-hover); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); }
-        .hero .btn { animation-delay: 0.8s; }
-
-        /* ===== ACHIEVEMENTS TIMELINE ===== */
-        .timeline { position: relative; max-width: 700px; margin: 0 auto; }
-        .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--border-color); top: 0; bottom: 0; left: 50%; margin-left: -2px; }
-        .timeline-item { padding: 10px 40px; position: relative; width: 50%; }
-        .timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: white; border: 4px solid var(--accent-color); top: 25px; border-radius: 50%; z-index: 1; }
-        .left { left: 0; }
-        .right { left: 50%; }
-        .right::after { left: -10px; }
-        .timeline-content { padding: 20px 30px; background-color: var(--card-background); border: 1px solid var(--border-color); border-radius: 8px; }
-        .timeline-content h3 { font-family: var(--font-heading); margin-top: 0; }
-
-        /* ===== PROJECTS SECTION ===== */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .project-card {
-            border-radius: 12px;
-            overflow: hidden;
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
             position: relative;
-            color: white;
-            transition: transform 0.4s ease;
-            height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        .project-card:hover { transform: scale(1.03); }
-        .project-card::before {
+
+        h2::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 60%);
-            z-index: 1;
-        }
-        .project-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-        .project-card:hover .project-bg { transform: scale(1.1); }
-        .project-content { position: relative; z-index: 2; }
-        .project-title { font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 10px; }
-        .project-description { font-size: 1rem; opacity: 0.9; margin-bottom: 20px; }
-        .project-tech { display: flex; flex-wrap: wrap; gap: 10px; }
-        .project-tech span { background-color: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; }
-
-        /* ===== AI COACH SECTION ===== */
-        .ai-coach-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-        .ai-card {
-            background-color: var(--card-background);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        .ai-card h3 {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-        .ai-card p {
-            color: var(--secondary-text);
-            margin-bottom: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid var(--border-color);
-            font-family: var(--font-body);
-            font-size: 1rem;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
         }
 
-        /* ===== MODAL STYLES ===== */
-        .modal {
-            display: none;
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Custom Cursor --- */
+        .cursor-dot, .cursor-outline {
+            pointer-events: none;
             position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.5);
-            animation: fadeIn 0.3s;
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 10% auto;
-            padding: 30px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            position: relative;
-        }
-        .close-button {
-            color: #aaa;
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .close-button:hover, .close-button:focus {
-            color: black;
-        }
-        #modal-result h3 {
-            font-family: var(--font-heading);
-            margin-top: 0;
-        }
-        #modal-result pre {
-            background-color: var(--section-background);
-            padding: 15px;
-            border-radius: 8px;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            font-family: 'Courier New', Courier, monospace;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-        .loader {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--accent-color);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             border-radius: 50%;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-color);
+        }
+        .cursor-outline {
             width: 40px;
             height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
+            background-color: rgba(0, 119, 255, 0.2);
+            transition: top 0.3s ease-out, left 0.3s ease-out, transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        body:hover .cursor-dot, body:hover .cursor-outline {
+            opacity: 1;
+        }
+        .cursor-outline.hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            background-color: rgba(0, 119, 255, 0.3);
         }
 
 
-        /* ===== SPOTLIGHT/TESTIMONIALS ===== */
-        .spotlight-section { background-color: var(--section-background); }
-        .testimonial { background-color: var(--card-background); border-left: 5px solid var(--accent-color); padding: 30px; margin: 0 auto 20px; max-width: 700px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .testimonial blockquote { margin: 0; font-size: 1.1rem; font-style: italic; }
-        .testimonial footer { margin-top: 15px; font-weight: 700; text-align: right; color: var(--accent-color); }
+        /* --- Animated Background --- */
+        .bg-bubbles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .bg-bubbles li {
+            position: absolute; list-style: none; display: block; width: 40px; height: 40px; background-color: rgba(0, 119, 255, 0.15); bottom: -160px; animation: square 25s infinite; transition-timing-function: linear; border-radius: 8px;
+        }
+        .bg-bubbles li:nth-child(1) { left: 10%; }
+        .bg-bubbles li:nth-child(2) { left: 20%; width: 80px; height: 80px; animation-delay: 2s; animation-duration: 17s; }
+        .bg-bubbles li:nth-child(3) { left: 25%; animation-delay: 4s; }
+        .bg-bubbles li:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-duration: 22s; background-color: rgba(0, 119, 255, 0.2); }
+        .bg-bubbles li:nth-child(5) { left: 70%; }
+        .bg-bubbles li:nth-child(6) { left: 80%; width: 120px; height: 120px; animation-delay: 3s; background-color: rgba(0, 119, 255, 0.1); }
+        .bg-bubbles li:nth-child(7) { left: 32%; width: 160px; height: 160px; animation-delay: 7s; }
+        .bg-bubbles li:nth-child(8) { left: 55%; width: 20px; height: 20px; animation-delay: 15s; animation-duration: 40s; }
+        .bg-bubbles li:nth-child(9) { left: 25%; width: 10px; height: 10px; animation-delay: 2s; animation-duration: 40s; background-color: rgba(0, 119, 255, 0.25); }
+        .bg-bubbles li:nth-child(10) { left: 90%; width: 160px; height: 160px; animation-delay: 11s; }
 
-        /* ===== FOOTER SECTION ===== */
-        .footer { background-color: var(--primary-text); color: #ecf0f1; text-align: center; padding: 80px 20px; }
-        .footer .section-title, .footer p { color: #ffffff; }
-        .footer p { max-width: 600px; margin: 0 auto 35px; font-size: 1.1rem; }
-        .social-links { margin-top: 35px; }
-        .social-links a { color: #ffffff; display: inline-block; text-decoration: none; margin: 0 15px; transition: all 0.3s ease; }
-        .social-links a:hover { color: var(--accent-color); transform: scale(1.1); }
-        .social-links i { width: 28px; height: 28px; }
+        @keyframes square {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-120vh) rotate(720deg); opacity: 0; }
+        }
 
-        /* ===== RESPONSIVE DESIGN ===== */
+        /* --- Navigation --- */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%; padding: 15px 5%; z-index: 1000; transition: background-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+        }
+        .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .nav-container {
+            display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto;
+        }
+        .nav-logo { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); text-decoration: none; }
+        .nav-logo span { color: var(--primary-color); }
+        .nav-links { list-style: none; display: flex; gap: 25px; }
+        .nav-links a { color: var(--text-primary); text-decoration: none; font-weight: 500; position: relative; transition: color 0.3s; padding: 5px 0; }
+        .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: width 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .hamburger .bar { width: 25px; height: 3px; background-color: var(--text-primary); border-radius: 5px; transition: all 0.3s ease-in-out; }
+
+        /* --- Creative Buttons --- */
+        .cta-button {
+            position: relative;
+            background: var(--gradient);
+            color: #fff;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+            z-index: -1;
+        }
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--shadow-hover-color);
+        }
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; padding: 0 5%;
+            background-image: radial-gradient(circle at 1% 1%, rgba(0, 119, 255, 0.1), transparent 30%), radial-gradient(circle at 99% 99%, rgba(0, 119, 255, 0.1), transparent 40%);
+        }
+        .hero-content { z-index: 1; }
+        .hero-content h1 { font-size: 4rem; margin-bottom: 10px; }
+        .hero-content .tagline { font-size: 1.5rem; color: var(--text-secondary); margin-bottom: 30px; height: 2.2rem; }
+        .tagline .highlight { color: var(--primary-color); }
+
+        /* --- Generic Card Style with Glassmorphism --- */
+        .glass-card {
+            background: var(--card-bg-color);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--shadow-hover-color);
+        }
+
+        /* --- About Section --- */
+        .about-content { display: flex; justify-content: center; text-align: left; }
+        .about-text { max-width: 800px; }
+        .about-text p { margin-bottom: 20px; color: var(--text-secondary); }
+
+        /* --- Skills Section --- */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; text-align: center; }
+        .skill-card { padding: 30px 20px; }
+        .skill-card i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
+        .skill-card h4 { font-size: 1.1rem; font-weight: 500; }
+
+        /* --- Experience Section (Timeline) --- */
+        .timeline { position: relative; max-width: 1000px; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--border-color); top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 2px; }
+        .timeline-item { padding: 10px 40px; position: relative; width: 50%; }
+        .timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: var(--bg-color); border: 4px solid var(--primary-color); top: 25px; border-radius: 50%; z-index: 1; }
+        .timeline-item.left { left: 0; }
+        .timeline-item.right { left: 50%; }
+        .timeline-item.right::after { left: -10px; }
+        .timeline-content { padding: 25px; backdrop-filter: blur(5px); background-color: rgba(255, 255, 255, 0.7); }
+        .timeline-content h3 { margin-top: 0; color: var(--primary-color); }
+        .timeline-content h4 { color: var(--text-primary); font-weight: 500; }
+        .timeline-content .dates { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 10px; }
+        .timeline-content ul { list-style-position: inside; padding-left: 0; color: var(--text-secondary); }
+
+        /* --- Projects Section --- */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .project-card { overflow: hidden; display: flex; flex-direction: column; }
+        .project-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .project-content h3 { color: var(--primary-color); margin-bottom: 15px; }
+        .project-content p { color: var(--text-secondary); margin-bottom: 20px; flex-grow: 1; }
+        .project-content a { color: var(--primary-color); text-decoration: none; font-weight: 600; }
+        .project-content a:hover { text-decoration: underline; }
+
+        /* --- Achievements Section --- */
+        .achievements-grid { display: grid; gap: 20px; }
+        .achievement-card { padding: 30px; display: flex; align-items: center; gap: 30px; }
+        .achievement-card i { font-size: 3rem; color: var(--primary-color); flex-shrink: 0; }
+        .achievement-text h3 { margin: 0 0 5px 0; font-size: 1.25rem; }
+        .achievement-text p { color: var(--text-secondary); margin: 0; }
+
+        /* --- Certifications Section --- */
+        .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .cert-item { padding: 20px; text-align: center; }
+        .cert-item h4 { color: var(--text-primary); font-size: 1.1rem; margin-bottom: 5px; }
+        .cert-item p { color: var(--text-secondary); font-size: 0.9rem; }
+
+        /* --- Contact Section --- */
+        .contact-content { max-width: 700px; margin: 0 auto; text-align: center; }
+        .contact-content p { color: var(--text-secondary); margin-bottom: 40px; }
+        .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
+        /* --- Footer --- */
+        footer { text-align: center; padding: 40px 0 20px 0; border-top: 1px solid var(--border-color); margin-top: 60px; position: relative; z-index: 2; }
+        footer p { color: var(--text-secondary); }
+
+        /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            .main-nav ul { display: none; }
-            .hero-layout { flex-direction: column; text-align: center; }
-            .hero-text { text-align: center; }
-            .profile-picture { width: 200px; height: 200px; }
-            .hero-title { font-size: 2.8rem; }
-            .section-title { font-size: 2.2rem; }
-            .timeline::after { left: 15px; }
-            .timeline-item { width: 100%; padding-left: 50px; padding-right: 15px; }
-            .timeline-item::before { display: none; }
-            .left::after, .right::after { left: 5px; }
-            .right { left: 0%; }
-            .ai-coach-grid { grid-template-columns: 1fr; }
+            * { cursor: auto; } /* Re-enable default cursor on touch devices */
+            .cursor-dot, .cursor-outline { display: none; }
+            
+            .container { padding: 60px 0; }
+            
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2rem; }
+
+            .hero-content h1 { line-height: 1.2; }
+            .hero-content .tagline { font-size: 1.2rem; }
+
+            .nav-links { position: fixed; top: 0; right: -100%; width: 70%; height: 100vh; background-color: var(--card-bg-color); backdrop-filter: blur(10px); flex-direction: column; justify-content: center; align-items: center; gap: 40px; transition: right 0.5s ease-in-out; box-shadow: -5px 0 15px rgba(0,0,0,0.1); }
+            .nav-links.active { right: 0; }
+            .hamburger { display: flex; z-index: 1001; }
+            .hamburger.active .bar:nth-child(2) { opacity: 0; }
+            .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+            .timeline::after { left: 20px; }
+            .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; }
+            .timeline-item.left, .timeline-item.right { left: 0; }
+            .timeline-item::after { left: 10px; }
+            .about-content { flex-direction: column; text-align: center; gap: 30px; }
+            .achievement-card { flex-direction: column; text-align: center; gap: 15px; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (min-width: 1400px) {
+            body { font-size: 17px; }
+            h2 { font-size: 2.8rem; }
         }
     </style>
 </head>
 <body>
+    
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
 
-    <nav class="main-nav">
-        <div class="container nav-container">
-            <a href="#" class="nav-brand">Pranay Rishi</a>
-            <ul>
-                <li><a href="#achievements">Achievements</a></li>
+    <!-- Animated Background -->
+    <ul class="bg-bubbles">
+        <li></li><li></li><li></li><li></li><li></li>
+        <li></li><li></li><li></li><li></li><li></li>
+    </ul>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">Pranay<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Journey</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#ai-coach">✨ AI Coach</a></li>
-                <li><a href="#spotlight">Spotlight</a></li>
+                <li><a href="#achievements">Achievements</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="container hero-layout">
-            <div class="hero-text">
-                <p class="hero-subtitle">Cybersecurity Analyst & Debater</p>
-                <h1 class="hero-title">Pranay Rishi</h1>
-                <p class="hero-bio">
-                    I build and protect the digital world. As a Computer Engineering student, I'm driven by the challenge of solving complex security puzzles and crafting elegant software solutions. My experience spans from leading student tech initiatives to competing in national debates, teaching me that the best defense is a well-structured plan and clear communication.
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Pranay Rishi</h1>
+            <p class="tagline">I'm a <span id="typed-text" class="highlight"></span></p>
+            <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <h2 class="hidden">About Me</h2>
+        <div class="about-content hidden">
+            <div class="about-text">
+                <p>
+                    Cybersecurity-focused B.Tech Computer Engineering student with hands-on experience in threat analysis, log inspection, incident response simulations, and network security fundamentals.
                 </p>
-                <a href="#contact" class="btn">Get In Touch</a>
-            </div>
-            <div class="hero-image-container">
-                <!-- 
-                    *******************************************************************
-                    * IMAGE EMBEDDED: Your photo is now part of the code.             *
-                    * It will load correctly without needing a separate file upload.  *
-                    *******************************************************************
-                -->
-                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAJqAmIDASIAAhEBAxEB/8QAGwABAAIDAQEAAAAAAAAAAAAAAAUGAwQHAgH/xABEEAABAwMCAwQHBgMHAwQCAwEBAgMEAAUGEQcSITETQVEiMmFxFIGRChUjUpKhsRYzwdEkQnLh8PFjorJDY3OCg5L/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAQIDBP/EACERAQEAAgMAAwEBAQEBAAAAAAABAhESIQMxQRNRIgVhcZH/2gAMAwEAAhEDEQA/APqmlKUCuL7q2y2t11ZwlIKifYCu1U/iFhT+G3ZpBwpbDiQfYpIoPn7hXj7iLiLiS4W2Oq2N2+C66h1S2F70pSspGCHAM4A7J7693uO8b4ftNtu12kW2XapLyGVmKwtpbSljKclTitySRjGBj3r5q4T4qY4F4Z4quzMdyXcF3JEVhls4ytTakqUfYJBOfevU8a3/AIy4o4ZsM7iG3xLbbJ1yYEdqMSpbSlK2EKUT3G4gkADp0oPqGlKVQpSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSlKBSl-
-alt="Pranay Rishi professional headshot" 
-                     class="profile-picture">
+                <p>
+                    A strategic leader—Former Co-CEO of a student innovation hub and national-level debater—with strong communication, voice-over, and project management experience. Proven ability to implement security solutions, manage cross-functional teams, and deliver measurable impact. Currently seeking a Cybersecurity Analyst or Software Engineering internship to leverage technical expertise and leadership in a dynamic environment.
+                </p>
             </div>
         </div>
-    </header>
+    </section>
 
-    <main>
-        <!-- ===== ACHIEVEMENTS SECTION ===== -->
-        <section id="achievements" class="content-section">
-            <div class="container">
-                <h2 class="section-title">Career Milestones</h2>
-                <div class="timeline">
-                    <div class="timeline-item left"><div class="timeline-content"><h3>Best Debater Award</h3><p>Honored as the top individual at the Manthan 2023 National Debate Championship for rhetoric and persuasion.</p></div></div>
-                    <div class="timeline-item right"><div class="timeline-content"><h3>Offensive Security Training</h3><p>Completed the Offensive Security module on TryHackMe, gaining hands-on ethical hacking experience.</p></div></div>
-                    <div class="timeline-item left"><div class="timeline-content"><h3>National Debate Runner-Up</h3><p>Led the LPU team to a Runner-Up finish at the AMU National Debate Championship 2024.</p></div></div>
-                    <div class="timeline-item right"><div class="timeline-content"><h3>Defensive Security Training</h3><p>Completed the Defensive Security module on TryHackMe, mastering SIEM tools and incident response.</p></div></div>
+    <!-- Skills Section -->
+    <section id="skills" class="container">
+        <h2 class="hidden">Core Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card glass-card hidden"><i class="fas fa-shield-halved"></i><h4>Cybersecurity</h4></div>
+            <div class="skill-card glass-card hidden"><i class="fas fa-code"></i><h4>Web Development</h4></div>
+            <div class="skill-card glass-card hidden"><i class="fas fa-cloud"></i><h4>AWS Cloud</h4></div>
+            <div class="skill-card glass-card hidden"><i class="fas fa-sitemap"></i><h4>Project Management</h4></div>
+            <div class="skill-card glass-card hidden"><i class="fas fa-microphone-lines"></i><h4>Public Speaking</h4></div>
+            <div class="skill-card glass-card hidden"><i class="fas fa-microchip"></i><h4>Embedded Systems</h4></div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="container">
+        <h2 class="hidden">My Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item left hidden">
+                <div class="timeline-content glass-card">
+                    <h3>Co-CEO</h3>
+                    <h4>Student Innovation Hub</h4>
+                    <p class="dates">Aug 2024 - Apr 2025</p>
+                    <ul>
+                        <li>Spearheaded strategic direction for an unconventional student organization.</li>
+                        <li>Led cross-functional teams to execute high-engagement events.</li>
+                    </ul>
                 </div>
             </div>
-        </section>
-
-        <!-- ===== PROJECTS SECTION ===== -->
-        <section id="projects" class="content-section" style="background-color: var(--section-background);">
-            <div class="container">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="project-grid">
-                    <article class="project-card">
-                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=2070&auto=format&fit=crop" alt="Abstract technology background" class="project-bg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/2d3748?text=Image+Not+Found';">
-                        <div class="project-content">
-                            <h3 class="project-title">IoT Security Sensor</h3>
-                            <p class="project-description">Engineered a real-time fire/smoke detection system with an Arduino, exploring hardware and software security intersections.</p>
-                            <div class="project-tech"><span>Arduino</span><span>C++</span><span>Hardware</span></div>
-                        </div>
-                    </article>
-                    <article class="project-card">
-                        <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?q=80&w=2089&auto=format&fit=crop" alt="Code on a screen" class="project-bg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/2d3748?text=Image+Not+Found';">
-                        <div class="project-content">
-                            <h3 class="project-title">Responsive Web App</h3>
-                            <p class="project-description">Collaborated in a team to build a user-centric virtual zoo web app, focusing on creating a fluid and interactive front-end.</p>
-                            <div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
-                        </div>
-                    </article>
-                    <article class="project-card">
-                        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070&auto=format&fit=crop" alt="Newspapers and data" class="project-bg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/2d3748?text=Image+Not+Found';">
-                        <div class="project-content">
-                            <h3 class="project-title">Depth Files Channel</h3>
-                            <p class="project-description">Founded and produced content for a YouTube channel focused on data-driven investigations, honing skills in research and digital communication.</p>
-                            <div class="project-tech"><span>Research</span><span>Data Analysis</span><span>Video</span></div>
-                        </div>
-                    </article>
+            <div class="timeline-item right hidden">
+                <div class="timeline-content glass-card">
+                    <h3>Project Manager (Intern)</h3>
+                    <h4>Green Care Energies</h4>
+                    <p class="dates">May 2024 - Feb 2025</p>
+                    <ul>
+                        <li>Managed sustainable energy projects from inception to completion.</li>
+                        <li>Implemented risk mitigation and quality assurance strategies.</li>
+                    </ul>
                 </div>
             </div>
-        </section>
-
-        <!-- ===== AI COACH SECTION ===== -->
-        <section id="ai-coach" class="content-section">
-            <div class="container">
-                <h2 class="section-title">✨ AI-Powered Career Coach</h2>
-                <div class="ai-coach-grid">
-                    <div class="ai-card">
-                        <h3>AI Cover Letter Assistant</h3>
-                        <p>Need a compelling introduction? Let AI draft a personalized cover letter intro for you. Just fill in the details below.</p>
-                        <div class="form-group">
-                            <label for="userName">Your Name (Hiring Manager)</label>
-                            <input type="text" id="userName" placeholder="e.g., Jane Doe">
-                        </div>
-                        <div class="form-group">
-                            <label for="companyName">Company Name</label>
-                            <input type="text" id="companyName" placeholder="e.g., Google">
-                        </div>
-                        <div class="form-group">
-                            <label for="jobRole">Job Role</label>
-                            <input type="text" id="jobRole" placeholder="e.g., Cybersecurity Intern">
-                        </div>
-                        <button id="generateIntroBtn" class="btn">Generate Intro</button>
-                    </div>
-                    <div class="ai-card">
-                        <h3>AI Project Idea Generator</h3>
-                        <p>Looking for inspiration? Get project ideas tailored to my skills that would be a great addition to any portfolio.</p>
-                        <p><strong>Skills considered:</strong> Cybersecurity, Public Speaking, Web Development, Research, Leadership.</p>
-                        <button id="generateProjectsBtn" class="btn">Suggest Project Ideas</button>
-                    </div>
+            <div class="timeline-item left hidden">
+                <div class="timeline-content glass-card">
+                    <h3>Freelance Voice-Over Artist</h3>
+                    <h4>YouTube & Digital Media</h4>
+                    <p class="dates">Jan 2022 - Present</p>
+                    <ul>
+                        <li>Delivered professional voice-overs for 50+ videos.</li>
+                        <li>Managed end-to-end audio production using Audacity & Adobe Audition.</li>
+                    </ul>
                 </div>
-            </div>
-        </section>
-
-        <!-- ===== SPOTLIGHT SECTION ===== -->
-        <section id="spotlight" class="content-section" style="background-color: var(--section-background);">
-            <div class="container">
-                <h2 class="section-title">In the Spotlight</h2>
-                <div class="testimonial">
-                    <blockquote>Cheers to Pranay Rishi... for earning the title of "Best Debater" with unmatched rhetoric and persuasion skills.</blockquote>
-                    <footer>— LPU School of Computer Science Engineering</footer>
-                </div>
-                <div class="testimonial">
-                    <blockquote>LPU B.Tech. CSE students Pranay Rishi and Priya Jantwal have emerged as Runners-Up in "Manthan", the prestigious National Debate Championship... leaving a significant mark.</blockquote>
-                    <footer>— Lovely Professional University (Official)</footer>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- ===== CONTACT & FOOTER SECTION ===== -->
-    <footer id="contact" class="footer">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <p>I'm actively seeking internship roles and am always open to discussing new projects and collaboration opportunities. If you think I'd be a good fit for your team, I'd love to hear from you.</p>
-            <a href="mailto:pranayrishi1418@gmail.com" class="btn">pranayrishi1418@gmail.com</a>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/pranay-rishi-atpr3105/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i data-lucide="linkedin"></i></a>
-                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i data-lucide="github"></i></a>
-                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Download Resume"><i data-lucide="file-text"></i></a>
             </div>
         </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container">
+        <h2 class="hidden">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card glass-card hidden">
+                <div class="project-content">
+                    <h3>AI-Powered Directory Management System</h3>
+                    <p>A collaborative Python-based desktop app that reimagines file management with artificial intelligence, dynamic visualizations, and a custom recycle bin.</p>
+                    <a href="#" target="_blank">Details Coming Soon &rarr;</a>
+                </div>
+            </div>
+            <div class="project-card glass-card hidden">
+                <div class="project-content">
+                    <h3>Virtual Zoo</h3>
+                    <p>An interactive web-based project simulating a virtual zoo environment, created to demonstrate front-end web development skills and dynamic content handling.</p>
+                    <a href="https://github.com/agmanyadav/Virtual-zoo-SuperKings-CB228" target="_blank">View on GitHub &rarr;</a>
+                </div>
+            </div>
+            <div class="project-card glass-card hidden">
+                 <div class="project-content">
+                    <h3>Fire/Smoke Sensor System</h3>
+                    <p>An embedded systems project using an Arduino Uno and an MQ-2 sensor to detect smoke/fire and trigger an audible and visual alarm system for safety applications.</p>
+                    <a href="#" target="_blank">Details Coming Soon &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Achievements Section -->
+    <section id="achievements" class="container">
+        <h2 class="hidden">Key Achievements</h2>
+        <div class="achievements-grid">
+            <div class="achievement-card glass-card hidden">
+                <i class="fas fa-trophy"></i>
+                <div class="achievement-text">
+                    <h3>National Debate Championship Runner-Up</h3>
+                    <p>Represented my university at the AMU National Debate Championship 2024, securing a top position through teamwork and critical thinking.</p>
+                </div>
+            </div>
+            <div class="achievement-card glass-card hidden">
+                <i class="fas fa-award"></i>
+                <div class="achievement-text">
+                    <h3>High Commendation at Manthan MUN 2025</h3>
+                    <p>Awarded for exceptional performance in the Lok Sabha committee, debating on critical national policy issues.</p>
+                </div>
+            </div>
+             <div class="achievement-card glass-card hidden">
+                <i class="fas fa-comment-dots"></i>
+                <div class="achievement-text">
+                    <h3>Verbal Mention at Inaugural MUN</h3>
+                    <p>Received recognition for diplomatic skills and active participation as a delegate of the Russian Federation in the UNGA committee.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certs" class="container">
+        <h2 class="hidden">Licenses & Certifications</h2>
+        <div class="certs-grid">
+            <div class="cert-item glass-card hidden"><h4>Tata & Deloitte Cybersecurity Simulations</h4><p>Forage</p></div>
+            <div class="cert-item glass-card hidden"><h4>The Bits and Bytes of Computer Networking</h4><p>Google</p></div>
+            <div class="cert-item glass-card hidden"><h4>Introduction to Cybersecurity</h4><p>IBM</p></div>
+            <div class="cert-item glass-card hidden"><h4>Offensive & Defensive Security Intro</h4><p>TryHackMe</p></div>
+            <div class="cert-item glass-card hidden"><h4>AWS Certified Cloud Practitioner</h4><p>Amazon Web Services</p></div>
+            <div class="cert-item glass-card hidden"><h4>Introduction to Databases</h4><p>Meta</p></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2 class="hidden">Get In Touch</h2>
+        <div class="contact-content hidden">
+            <p>I'm actively seeking new opportunities and internships in Cybersecurity and Software Engineering. If you have a project in mind or think I'd be a good fit for your team, I'd love to connect.</p>
+            <div class="contact-links">
+                <a href="mailto:pranay.rishi.contact@email.com" class="cta-button">Email Me</a>
+                <a href="https://www.linkedin.com/in/pranay-rishi-atpr3105" target="_blank" class="cta-button">LinkedIn</a>
+                <a href="https://github.com/your-username" target="_blank" class="cta-button">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Pranay Rishi. All rights reserved.</p>
     </footer>
 
-    <!-- The Modal -->
-    <div id="aiModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <div id="modal-result">
-                <!-- AI result will be injected here -->
-            </div>
-        </div>
-    </div>
-
+    <!-- Typed.js for typing animation -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
-        // Modal handling
-        const modal = document.getElementById('aiModal');
-        const modalResult = document.getElementById('modal-result');
-        const closeButton = document.querySelector('.close-button');
+        document.addEventListener('DOMContentLoaded', function() {
+            const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-        closeButton.onclick = () => { modal.style.display = 'none'; };
-        window.onclick = (event) => {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        };
+            // --- Custom Cursor ---
+            if (!isTouchDevice()) {
+                const cursorDot = document.querySelector('.cursor-dot');
+                const cursorOutline = document.querySelector('.cursor-outline');
 
-        function showLoader() {
-            modalResult.innerHTML = '<div class="loader"></div>';
-            modal.style.display = 'block';
-        }
+                window.addEventListener('mousemove', (e) => {
+                    const posX = e.clientX;
+                    const posY = e.clientY;
 
-        function showResult(title, content) {
-            modalResult.innerHTML = `<h3>${title}</h3><pre>${content}</pre>`;
-        }
-        
-        function showError(message) {
-             modalResult.innerHTML = `<h3>Error</h3><p>${message}</p>`;
-        }
-
-        // Gemini API call logic
-        async function callGemini(prompt) {
-            showLoader();
-            const apiKey = ""; // API key is handled by the environment
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-            
-            const payload = {
-                contents: [{ role: "user", parts: [{ text: prompt }] }]
-            };
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
+                    cursorDot.style.left = `${posX}px`;
+                    cursorDot.style.top = `${posY}px`;
+                    
+                    cursorOutline.style.left = `${posX}px`;
+                    cursorOutline.style.top = `${posY}px`;
                 });
 
-                if (!response.ok) {
-                    throw new Error(`API Error: ${response.statusText}`);
-                }
+                document.querySelectorAll('a, .cta-button, .hamburger').forEach((el) => {
+                    el.addEventListener('mouseenter', () => {
+                        cursorOutline.classList.add('hover');
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        cursorOutline.classList.remove('hover');
+                    });
+                });
+            } else {
+                document.querySelector('.cursor-dot').style.display = 'none';
+                document.querySelector('.cursor-outline').style.display = 'none';
+                document.querySelectorAll('*').forEach(el => el.style.cursor = 'auto');
+            }
 
-                const result = await response.json();
-                
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0) {
-                    return result.candidates[0].content.parts[0].text;
+            // --- Typed.js Animation ---
+            const options = {
+                strings: ['Cybersecurity Professional.', 'National Debater.', 'Tech Leader.', 'Software Developer.'],
+                typeSpeed: 50,
+                backSpeed: 25,
+                backDelay: 1500,
+                loop: true
+            };
+            const typed = new Typed('#typed-text', options);
+
+            // --- Navbar Scroll Effect ---
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
                 } else {
-                    if (result.promptFeedback && result.promptFeedback.blockReason) {
-                         throw new Error(`Request was blocked: ${result.promptFeedback.blockReason}. Please adjust your input.`);
-                    }
-                    throw new Error("Unexpected API response format.");
+                    navbar.classList.remove('scrolled');
                 }
-            } catch (error) {
-                console.error("Gemini API call failed:", error);
-                showError(error.message || "An error occurred while contacting the AI. Please try again.");
-                return null;
-            }
-        }
+            });
 
-        // Event listener for Cover Letter Intro
-        document.getElementById('generateIntroBtn').addEventListener('click', async () => {
-            const userName = document.getElementById('userName').value;
-            const companyName = document.getElementById('companyName').value;
-            const jobRole = document.getElementById('jobRole').value;
+            // --- Hamburger Menu for Mobile ---
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
 
-            if (!userName || !companyName || !jobRole) {
-                alert("Please fill in all fields for the cover letter intro.");
-                return;
-            }
+            // --- Active Nav Link Highlighting on Scroll ---
+            const sections = document.querySelectorAll('section');
+            const navLi = document.querySelectorAll('.nav-links a');
+            window.addEventListener('scroll', () => {
+                let current = 'hero';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLi.forEach(a => {
+                    a.classList.remove('active');
+                    if (a.getAttribute('href').includes(current)) {
+                        a.classList.add('active');
+                    }
+                });
+            });
 
-            const prompt = `My name is Pranay Rishi. I am a cybersecurity student, a national-level debater, and a proven leader. Generate a short, compelling, and professional introductory paragraph (around 4-5 sentences) for a cover letter. I am applying for the ${jobRole} role at ${companyName}. The hiring manager's name is ${userName}. The tone should be confident and highlight my unique blend of technical cybersecurity skills and strong communication/leadership abilities from debating.`;
-            
-            const resultText = await callGemini(prompt);
-            if (resultText) {
-                showResult("✨ AI-Generated Cover Letter Intro", resultText);
-            }
+            // --- Scroll-triggered Fade-in Animations ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const hiddenElements = document.querySelectorAll('.hidden');
+            hiddenElements.forEach(el => observer.observe(el));
         });
-
-        // Event listener for Project Ideas
-        document.getElementById('generateProjectsBtn').addEventListener('click', async () => {
-            const prompt = `I am Pranay Rishi, a student with skills in Cybersecurity, National-Level Debating, Public Speaking, Web Development, Research, and Leadership. Suggest three unique and impressive portfolio project ideas that creatively combine at least two of these skills. For each idea, provide a title, a brief 2-sentence description, and list the key skills demonstrated. Format the output clearly.`;
-
-            const resultText = await callGemini(prompt);
-            if (resultText) {
-                showResult("✨ AI-Generated Project Ideas", resultText);
-            }
-        });
-
     </script>
-
 </body>
 </html>

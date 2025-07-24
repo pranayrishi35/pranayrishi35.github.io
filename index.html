@@ -183,7 +183,7 @@
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
             display: inline-block;
             overflow: hidden;
             z-index: 1;
@@ -206,6 +206,19 @@
         .cta-button:hover::before {
             left: 100%;
         }
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        .cta-button.secondary:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+        .cta-button.secondary::before {
+            display: none; /* No shine effect for secondary button */
+        }
+
 
         /* --- Hero Section --- */
         #hero {
@@ -256,7 +269,71 @@
         .timeline-content .dates { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 10px; }
         .timeline-content ul { list-style-position: inside; padding-left: 0; color: var(--text-secondary); }
 
-        /* --- Projects Section --- */
+        /* --- Featured Project Section --- */
+        .featured-project-card {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 40px;
+            border: 1px solid rgba(0, 119, 255, 0.25);
+        }
+        .featured-project-image {
+            flex: 1 1 40%;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .featured-project-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            transition: transform 0.4s ease;
+        }
+        .featured-project-card:hover .featured-project-image img {
+            transform: scale(1.05);
+        }
+        .featured-project-details {
+            flex: 1 1 60%;
+        }
+        .featured-project-details h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        .featured-project-details .project-headline {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+        .project-tech-stack {
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .project-tech-stack span {
+            background-color: rgba(0, 119, 255, 0.1);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .featured-project-details p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+        .project-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* --- More Projects Section --- */
+        #other-projects {
+            padding-top: 0;
+        }
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .project-card { overflow: hidden; display: flex; flex-direction: column; }
         .project-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
@@ -286,8 +363,121 @@
         /* --- Footer --- */
         footer { text-align: center; padding: 40px 0 20px 0; border-top: 1px solid var(--border-color); margin-top: 60px; position: relative; z-index: 2; }
         footer p { color: var(--text-secondary); }
+        
+        /* --- Universal Modal Styles --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none; /* Initially hidden */
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.show {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content-wrapper {
+            position: relative;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .modal-overlay.show .modal-content-wrapper {
+            transform: scale(1);
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            line-height: 38px;
+            text-align: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .modal-close-btn:hover {
+            color: var(--primary-color);
+            background: rgba(255,255,255,0.8);
+        }
+        
+        /* Demo Modal Specifics */
+        #demo-modal .modal-content-wrapper {
+            width: 95%;
+            height: 95%;
+            max-width: 1200px;
+            max-height: 800px;
+        }
+        #demo-modal iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            flex-grow: 1;
+        }
+        
+        /* Info Modal Specifics */
+        #info-modal .modal-content-wrapper {
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+        }
+        .info-modal-body {
+            padding: 30px 40px;
+            overflow-y: auto;
+        }
+        .info-modal-body h4 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+        .info-modal-body h4:first-child {
+            margin-top: 0;
+        }
+        .info-modal-body p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+        .info-modal-body ul {
+            list-style-position: inside;
+            padding-left: 5px;
+            color: var(--text-secondary);
+        }
+        .info-modal-body li {
+            margin-bottom: 8px;
+        }
+
 
         /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .featured-project-card {
+                flex-direction: column;
+                padding: 30px;
+                text-align: center;
+            }
+            .project-links, .project-tech-stack {
+                justify-content: center;
+            }
+        }
+
         @media (max-width: 768px) {
             * { cursor: auto; } /* Re-enable default cursor on touch devices */
             .cursor-dot, .cursor-outline { display: none; }
@@ -313,6 +503,7 @@
             .about-content { flex-direction: column; text-align: center; gap: 30px; }
             .achievement-card { flex-direction: column; text-align: center; gap: 15px; }
             .projects-grid { grid-template-columns: 1fr; }
+            .info-modal-body { padding: 20px; }
         }
 
         @media (min-width: 1400px) {
@@ -430,9 +621,34 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Featured Project Section -->
     <section id="projects" class="container">
-        <h2 class="hidden">Featured Projects</h2>
+        <h2 class="hidden">Project Spotlight</h2>
+        <div class="featured-project-card glass-card hidden">
+            <div class="featured-project-image">
+                <img src="https://placehold.co/600x450/1a202c/00c6ff?text=Suraksha+QR+%F0%9F%94%92" alt="Project Suraksha QR" onerror="this.onerror=null;this.src='https://placehold.co/600x450/1a202c/ffffff?text=Image+Not+Found';">
+            </div>
+            <div class="featured-project-details">
+                <h3>Project Suraksha QR</h3>
+                <p class="project-headline">A Modern 2FA & Anti-Fraud System for UPI</p>
+                <div class="project-tech-stack">
+                    <span>JavaScript</span><span>HTML5</span><span>Tailwind CSS</span><span>Security Analysis</span>
+                </div>
+                <p>
+                    An innovative solution designed to combat the rise of UPI payment scams. Project Suraksha introduces a multi-layered security framework, including dynamic risk analysis, time-locked transactions for suspicious payments, and a robust three-factor authentication protocol to protect users from fraud.
+                </p>
+                <div class="project-links">
+                    <button id="live-demo-btn" class="cta-button">Live Demo</button>
+                    <a href="https://github.com/pranayrishi35/Project-Suraksha-QR" target="_blank" class="cta-button secondary">View Source</a>
+                    <button id="read-more-btn" class="cta-button secondary">Read More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Projects Section -->
+    <section id="other-projects" class="container">
+        <h2 class="hidden">More Projects</h2>
         <div class="projects-grid">
             <div class="project-card glass-card hidden">
                 <div class="project-content">
@@ -507,7 +723,7 @@
             <div class="contact-links">
                 <a href="mailto:pranay.rishi.contact@email.com" class="cta-button">Email Me</a>
                 <a href="https://www.linkedin.com/in/pranay-rishi-atpr3105" target="_blank" class="cta-button">LinkedIn</a>
-                <a href="https://github.com/your-username" target="_blank" class="cta-button">GitHub</a>
+                <a href="https://github.com/pranayrishi35" target="_blank" class="cta-button">GitHub</a>
             </div>
         </div>
     </section>
@@ -516,6 +732,40 @@
     <footer>
         <p>&copy; 2025 Pranay Rishi. All rights reserved.</p>
     </footer>
+
+    <!-- Live Demo Modal -->
+    <div id="demo-modal" class="modal-overlay">
+        <div class="modal-content-wrapper">
+            <span id="demo-modal-close" class="modal-close-btn">&times;</span>
+            <iframe id="demo-iframe"></iframe>
+        </div>
+    </div>
+    
+    <!-- Project Info Modal -->
+    <div id="info-modal" class="modal-overlay">
+        <div class="modal-content-wrapper">
+            <span id="info-modal-close" class="modal-close-btn">&times;</span>
+            <div class="info-modal-body">
+                <h4>Project Overview</h4>
+                <p>Project Suraksha QR was initiated to address the escalating crisis of trust in India's digital payment ecosystem. The mission is to re-architect the security paradigm, shifting the burden of fraud detection from the vulnerable end-user to an intelligent, empathetic, and resilient technological framework.</p>
+                
+                <h4>Key Innovations & Features</h4>
+                <ul>
+                    <li><strong>Real-time Transaction Risk Engine (RTRE):</strong> An AI model that analyzes transactions for "scam signatures" beyond simple anomaly detection.</li>
+                    <li><strong>Proactive Trust Signals:</strong> A QR Verification & Rating system provides users with an immediate trust signal before they transact.</li>
+                    <li><strong>Time-Lock Protocol:</strong> High-risk transactions are automatically placed on a temporary hold, giving users a crucial window to reconsider and preventing coerced payments.</li>
+                    <li><strong>Hardened Three-Factor Verification (3FV):</strong> For the most critical transactions, a robust, multi-step verification process is enforced, creating an exceptionally strong defense.</li>
+                </ul>
+
+                <h4>Prototype Architecture</h4>
+                <p>The project is a self-contained prototype demonstrating the complete security flow. The backend is a simulated secure API written in JavaScript, encapsulating the risk engine and security layers (HMAC signing, input validation, rate limiting) to mirror a production environment without exposing core logic on the client-side.</p>
+                
+                <h4>Strategic Vision</h4>
+                <p>With the prototype complete, the project is primed for a "Security-as-a-Service" (SaaS) business model, aiming to secure a pilot program with a major banking partner to build a long-term competitive moat through the network effect of its security data.</p>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Typed.js for typing animation -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
@@ -539,7 +789,7 @@
                     cursorOutline.style.top = `${posY}px`;
                 });
 
-                document.querySelectorAll('a, .cta-button, .hamburger').forEach((el) => {
+                document.querySelectorAll('a, .cta-button, .hamburger, button, .modal-close-btn').forEach((el) => {
                     el.addEventListener('mouseenter', () => {
                         cursorOutline.classList.add('hover');
                     });
@@ -619,6 +869,259 @@
 
             const hiddenElements = document.querySelectorAll('.hidden');
             hiddenElements.forEach(el => observer.observe(el));
+
+            // --- Universal Modal Logic ---
+            const openModal = (modalId) => {
+                const modal = document.getElementById(modalId);
+                if (modal) modal.classList.add('show');
+            };
+
+            const closeModal = (modalId) => {
+                const modal = document.getElementById(modalId);
+                if (modal) modal.classList.remove('show');
+            };
+
+            // --- Live Demo Modal ---
+            const liveDemoBtn = document.getElementById('live-demo-btn');
+            const demoModalClose = document.getElementById('demo-modal-close');
+            const demoIframe = document.getElementById('demo-iframe');
+            const demoHtmlContent = `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Project Suraksha QR - Suraksha Bank Prototype</title>
+                    <script src="https://cdn.tailwindcss.com"><\/script>
+                    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+                    <style>
+                        body { font-family: 'Inter', sans-serif; }
+                        .modal-backdrop { background-color: rgba(0, 0, 0, 0.6); transition: opacity 0.3s ease; }
+                        .modal-content { transition: transform 0.3s ease; }
+                        .hidden { display: none; }
+                        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #3b82f6; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
+                        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+                        .interactive-button { transition: transform 0.1s ease; }
+                        .interactive-button:active { transform: scale(0.97); }
+                        .otp-input { width: 3rem; height: 3rem; text-align: center; font-size: 1.5rem; border-radius: 0.5rem; border: 2px solid #d1d5db; }
+                        .otp-input:focus { border-color: #3b82f6; outline: none; box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4); }
+                    <\/style>
+                </head>
+                <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+                    <div class="w-full max-w-sm mx-auto bg-white rounded-xl shadow-2xl overflow-hidden">
+                        <header class="bg-blue-800 p-4 flex items-center justify-between">
+                            <img src="https://placehold.co/150x40/FFFFFF/003366?text=Suraksha+Bank" alt="Suraksha Bank Logo" class="h-8">
+                            <div class="text-right">
+                                <h1 class="text-white text-lg font-bold">Secure UPI</h1>
+                            </div>
+                        </header>
+                        <main id="main-content" class="p-6">
+                            <h2 class="text-lg font-semibold text-gray-800 mb-4">Simulate a Transaction</h2>
+                            <p class="text-sm text-gray-600 mb-6">Choose a scenario to test the multi-layered security system.</p>
+                            <div class="space-y-3">
+                                <button id="btn-low-risk" class="interactive-button w-full bg-green-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-green-700">Low Risk: Verified Merchant</button>
+                                <button id="btn-medium-risk" class="interactive-button w-full bg-yellow-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-yellow-600">Medium Risk: Unverified Merchant</button>
+                                <button id="btn-android-high-risk" class="interactive-button w-full bg-red-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-red-700">High Risk: Helpline Hoax (Android)</button>
+                                <button id="btn-ios-high-risk" class="interactive-button w-full bg-orange-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-orange-700">High Risk: Rushed Payment (iOS)</button>
+                            </div>
+                        </main>
+                        <div id="loading-screen" class="p-6 hidden text-center">
+                            <div class="loader mx-auto"></div>
+                            <p class="mt-4 text-gray-600 font-semibold">Analyzing Transaction...</p>
+                        </div>
+                        <div id="time-lock-screen" class="p-8 hidden text-center">
+                            <div class="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                                <svg class="w-10 h-10 text-blue-600 animate-spin" style="animation-duration: 3s;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900 mt-4">Security Hold Activated</h2>
+                            <p class="text-gray-600 mt-2">For your protection, this high-risk payment is on a 30-minute security hold.</p>
+                            <div class="mt-6 text-4xl font-bold text-blue-700" id="countdown-timer">30:00</div>
+                            <p class="text-xs text-gray-500 mt-2">(Prototype simulates this in 30 seconds)</p>
+                        </div>
+                        <div id="payment-screen" class="p-6 hidden">
+                            <div class="text-center">
+                                <p class="text-gray-500">Paying To</p>
+                                <p id="recipient-name" class="text-2xl font-bold text-gray-900"></p>
+                                <p id="recipient-vpa" class="text-sm text-gray-600"></p>
+                                <div id="verification-badge" class="hidden mt-2 inline-flex items-center bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded-full">
+                                    <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944a11.954 11.954 0 007.834 3.055a1.96 1.96 0 01-.522 3.297l-1.033.517c-.22.11-.464.053-.64-.146a4.494 4.494 0 00-6.332 0c-.176.2-.42.256-.64.146l-1.033-.517a1.96 1.96 0 01-.522-3.297zM10 12a4 4 0 100-8 4 4 0 000 8zm0 2a6 6 0 100-12 6 6 0 000 12z" clip-rule="evenodd"></path></svg>
+                                    Verified Merchant
+                                    <span id="rating-stars" class="ml-2 font-bold"></span>
+                                </div>
+                                <div class="my-6">
+                                    <p class="text-5xl font-bold text-gray-900" id="payment-amount"></p>
+                                </div>
+                                <div id="pin-entry" class="mt-8">
+                                    <p class="font-semibold text-gray-700 mb-2">Enter UPI PIN</p>
+                                    <div class="flex justify-center space-x-3">
+                                        <div class="w-12 h-12 bg-gray-200 rounded-lg"></div><div class="w-12 h-12 bg-gray-200 rounded-lg"></div><div class="w-12 h-12 bg-gray-200 rounded-lg"></div><div class="w-12 h-12 bg-gray-200 rounded-lg"></div>
+                                    </div>
+                                </div>
+                                <button id="btn-pay" class="interactive-button w-full mt-8 bg-blue-800 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-900">PAY</button>
+                            </div>
+                        </div>
+                        <div id="result-screen" class="p-8 text-center hidden">
+                            <div id="result-icon" class="mx-auto w-20 h-20 rounded-full flex items-center justify-center mb-4"></div>
+                            <h2 id="result-title" class="text-2xl font-bold"></h2>
+                            <p id="result-message" class="text-gray-600 mt-2"></p>
+                            <button id="btn-new-simulation" class="interactive-button w-full mt-8 bg-gray-700 text-white font-bold py-3 px-4 rounded-lg hover:bg-gray-800">New Simulation</button>
+                        </div>
+                        <footer class="text-center p-4 bg-gray-50 border-t">
+                            <p id="copyright-footer" class="text-xs text-gray-500"></p>
+                        </footer>
+                    </div>
+                    <div id="categorization-modal" class="fixed inset-0 modal-backdrop items-center justify-center hidden p-4">
+                        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6 modal-content">
+                            <h2 class="text-xl font-bold text-gray-900 text-center">To help us keep your account secure, please tell us what this payment is for.</h2>
+                            <div class="grid grid-cols-2 gap-4 mt-6">
+                                <button id="btn-cat-shopping" class="interactive-button flex flex-col items-center p-4 bg-gray-100 rounded-lg hover:bg-blue-100 border border-gray-200 hover:border-blue-300">
+                                    <svg class="w-8 h-8 text-blue-700 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                    <span class="font-semibold">Shopping</span>
+                                </button>
+                                <button id="btn-cat-family" class="interactive-button flex flex-col items-center p-4 bg-gray-100 rounded-lg hover:bg-blue-100 border border-gray-200 hover:border-blue-300">
+                                    <svg class="w-8 h-8 text-blue-700 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 016-6h6a6 6 0 016 6v1h-3M15 21a2 2 0 002-2v-1a2 2 0 00-2-2h-3a2 2 0 00-2 2v1a2 2 0 002 2h3zm-3-14a4 4 0 00-4 4v1h8v-1a4 4 0 00-4-4z"></path></svg>
+                                    <span class="font-semibold">Family/Friend</span>
+                                </button>
+                            </div>
+                            <div class="mt-4 p-3 bg-yellow-100 text-yellow-800 text-sm rounded-lg text-center">
+                                <strong>Reminder:</strong> Suraksha Bank will never ask you to pay for a KYC update.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="direct-challenge-modal" class="fixed inset-0 modal-backdrop items-center justify-center hidden p-4">
+                        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6 text-center modal-content">
+                            <div class="mx-auto w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
+                                <svg class="w-10 h-10 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900 mt-4">Security Check</h2>
+                            <p class="text-gray-600 mt-2">This payment of <strong id="direct-challenge-amount"></strong> is to an unverified person you have never paid before. Scammers often ask for large, urgent payments.</p>
+                            <p class="font-bold text-gray-800 mt-4">Are you absolutely sure you know and trust this person?</p>
+                            <div class="mt-6 space-y-3">
+                                <button id="btn-challenge-cancel" class="interactive-button w-full bg-red-700 text-white font-bold py-3 px-4 rounded-lg hover:bg-red-800">No, Cancel Payment</button>
+                                <button id="btn-challenge-proceed" class="interactive-button w-full bg-transparent text-gray-600 font-bold py-3 px-4 rounded-lg hover:bg-gray-200">Yes, I Trust Them & Accept the Risk</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="geolocation-consent-modal" class="fixed inset-0 modal-backdrop items-center justify-center hidden p-4">
+                        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6 text-center modal-content">
+                            <div class="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                                <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900 mt-4">Protect This Payment?</h2>
+                            <p class="text-gray-600 mt-2">To help protect you from scams, we can perform a quick security check. This involves checking if this payment is happening from a location that is unusual for you.</p>
+                            <p class="text-sm text-gray-500 mt-2">This requires one-time access to your device's location, just for this transaction. We will not track you or store your location history.</p>
+                            <div class="mt-6 space-y-3">
+                                <button id="btn-geo-allow" class="interactive-button w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700">Allow Security Check</button>
+                                <button id="btn-geo-deny" class="interactive-button w-full bg-transparent text-gray-600 font-bold py-3 px-4 rounded-lg hover:bg-gray-200">No, Continue Without Check</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="call-log-consent-modal" class="fixed inset-0 modal-backdrop items-center justify-center hidden p-4">
+                        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6 text-center modal-content">
+                            <div class="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                                <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900 mt-4">Extra Security Check for Phone Scams</h2>
+                            <p class="text-gray-600 mt-2">Scammers sometimes call and pressure people into making urgent payments. To protect you from this specific type of fraud, we need your permission to see if you received a call from an unsaved number right before this payment.</p>
+                            <p class="text-sm text-gray-500 mt-2">We will <strong>only</strong> check the time of the last call and whether the number is in your contacts. We <strong>do not</strong> listen to calls, read your contacts, or store your call history.</p>
+                            <div class="mt-6 space-y-3">
+                                <button id="btn-call-allow" class="interactive-button w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700">Allow Phone Scam Check</button>
+                                <button id="btn-call-deny" class="interactive-button w-full bg-transparent text-gray-600 font-bold py-3 px-4 rounded-lg hover:bg-gray-200">Deny</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="post-hold-confirm-modal" class="fixed inset-0 modal-backdrop items-center justify-center hidden p-4">
+                        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6 text-center modal-content">
+                            <h2 class="text-2xl font-bold text-gray-900 mt-4">Security Hold Complete</h2>
+                            <p class="text-gray-600 mt-2">The 30-minute security hold has finished. Do you still wish to proceed with this payment?</p>
+                            <div class="mt-6 space-y-3">
+                                <button id="btn-post-hold-proceed" class="interactive-button w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700">Yes, Proceed with Payment</button>
+                                <button id="btn-post-hold-cancel" class="interactive-button w-full bg-transparent text-gray-600 font-bold py-3 px-4 rounded-lg hover:bg-gray-200">No, Cancel Payment</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="bank-otp-modal" class="fixed inset-0 modal-backdrop items-center justify-center hidden p-4">
+                        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6 text-center modal-content">
+                            <h2 class="text-2xl font-bold text-gray-900 mt-4">Final Verification: Step 1 of 3</h2>
+                            <p class="text-gray-600 mt-2">Please call the Suraksha Bank helpline. A bank employee will provide you with a secure OTP to enter below.</p>
+                            <div class="my-4 space-x-2"><input type="text" maxlength="6" id="bank-otp-input" class="otp-input tracking-widest w-48 mx-auto"></div>
+                            <button id="btn-verify-bank-otp" class="interactive-button w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700">Verify Bank OTP</button>
+                            <p id="bank-otp-error" class="text-red-500 text-sm mt-2 hidden">Invalid OTP. Please try again.</p>
+                        </div>
+                    </div>
+                    <div id="email-otp-modal" class="fixed inset-0 modal-backdrop items-center justify-center hidden p-4">
+                        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6 text-center modal-content">
+                            <h2 class="text-2xl font-bold text-gray-900 mt-4">Final Verification: Step 2 of 3</h2>
+                            <p class="text-gray-600 mt-2">An OTP has been sent to your registered email address. Please enter it below.</p>
+                            <div class="my-4 space-x-2"><input type="text" maxlength="6" id="email-otp-input" class="otp-input tracking-widest w-48 mx-auto"></div>
+                            <button id="btn-verify-email-otp" class="interactive-button w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700">Verify Email OTP</button>
+                            <p id="email-otp-error" class="text-red-500 text-sm mt-2 hidden">Invalid OTP. Please try again.</p>
+                        </div>
+                    </div>
+                    <div id="sms-otp-modal" class="fixed inset-0 modal-backdrop items-center justify-center hidden p-4">
+                        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6 text-center modal-content">
+                            <h2 class="text-2xl font-bold text-gray-900 mt-4">Final Verification: Step 3 of 3</h2>
+                            <p class="text-gray-600 mt-2">An OTP has been sent to your registered phone number via SMS. Please enter it below.</p>
+                            <div class="my-4 space-x-2"><input type="text" maxlength="6" id="sms-otp-input" class="otp-input tracking-widest w-48 mx-auto"></div>
+                            <button id="btn-verify-sms-otp" class="interactive-button w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700">Verify SMS OTP</button>
+                            <p id="sms-otp-error" class="text-red-500 text-sm mt-2 hidden">Invalid OTP. Please try again.</p>
+                        </div>
+                    </div>
+                    <script>
+                        let currentTransaction = {}; let consentResponses = {}; let countdownInterval = null;
+                        const SecureAPI = { API_SECRET_KEY: "a-very-secure-and-long-secret-key-for-hmac", RATE_LIMIT_STORE: {}, RATE_LIMIT_THRESHOLD: 5, RATE_LIMIT_WINDOW: 10000, QR_DATABASE: { 'vendor123@okbank': { isVerified: true, rating: 4.8, name: 'Weekly Vegetable Vendor' }, 'randomperson@okbank': { isVerified: false, rating: null, name: 'Kiosk Owner' }, 'scammer99@okbank': { isVerified: false, rating: null, name: 'Suraksha Bank Verification' } }, _sign: function(dataString) { let hash = 0; for (let i = 0; i < dataString.length; i++) { const char = dataString.charCodeAt(i); hash = ((hash << 5) - hash) + char; hash |= 0; } return hash.toString(); }, handleRequest: function(request) { const clientIp = '127.0.0.1'; const now = Date.now(); const requests = this.RATE_LIMIT_STORE[clientIp] || []; const recentRequests = requests.filter(timestamp => now - timestamp < this.RATE_LIMIT_WINDOW); if (recentRequests.length >= this.RATE_LIMIT_THRESHOLD) { console.error("API SECURITY ALERT: Rate limit exceeded. Request rejected."); return { success: false, error: "Too Many Requests", status: 429 }; } this.RATE_LIMIT_STORE[clientIp] = [...recentRequests, now]; const expectedSignature = this._sign(request.body + this.API_SECRET_KEY); if (request.headers['X-Request-Signature'] !== expectedSignature) { console.error("API SECURITY ALERT: Invalid signature. Request rejected."); return { success: false, error: "Authentication Failed", status: 403 }; } const txData = JSON.parse(request.body); if (!txData || typeof txData.amount !== 'number' || !txData.recipient || !txData.user) { console.error("API SECURITY ALERT: Invalid input format. Request rejected."); return { success: false, error: "Bad Request", status: 400 }; } const qrInfo = this.QR_DATABASE[txData.recipient.vpa] || { isVerified: false, rating: null }; const riskScore = this.RTRE.getRiskScore(txData, qrInfo); return { success: true, riskScore: riskScore, qrInfo: qrInfo, status: 200 }; }, RTRE: { getRiskScore: function(txData, qrInfo) { let score = 0; let weights = { newVPA: 0.3, highAmountDeviation: 0.2, highInteractionSpeed: 0.25, postUnknownCall: 0.8, mismatchLocation: 0.4, iosHighRiskCombo: 0.9, verifiedMerchantDiscount: -0.5 }; if (qrInfo.isVerified) score += weights.verifiedMerchantDiscount; if (txData.recipient.isNew && !qrInfo.isVerified) score += weights.newVPA; if (txData.amount > txData.user.avgTransaction * 5) score += weights.highAmountDeviation; if (txData.behavior.interactionSpeed === 'high') score += weights.highInteractionSpeed; if (txData.consent.geolocation && txData.context.isKnownMerchantLocation && txData.recipient.isNew) score += weights.mismatchLocation; if (txData.consent.call_log && txData.context.precededByUnknownCall) score += weights.postUnknownCall; if (txData.context.isIosHighRisk && txData.recipient.isNew && txData.behavior.interactionSpeed === 'high' && txData.amount > 10000) score += weights.iosHighRiskCombo; return Math.max(0, Math.min(score, 1.0)); } }, sendSilentAlert: function(txData) { console.log("%c--- SILENT BANK ALERT ---", "color: #ff0000; font-weight: bold;"); console.log("High-risk transaction override detected. Initiating fraud investigation protocol."); console.log(\`Transaction Details: Amount=₹\${txData.amount}, Recipient=\${txData.recipient.vpa}\`); console.log("User has been placed in a 30-minute cooling-off period."); console.log("--------------------------"); } };
+                        async function fetchRiskScoreFromAPI(txData, consentData) { const body = JSON.stringify({ ...txData, consent: consentData }); const signature = SecureAPI._sign(body + SecureAPI.API_SECRET_KEY); const request = { body: body, headers: { 'Content-Type': 'application/json', 'X-Request-Signature': signature } }; return new Promise(resolve => { setTimeout(() => { const response = SecureAPI.handleRequest(request); resolve(response); }, 1000); }); }
+                        const scenarios = { low_risk: { amount: 500, recipient: { name: 'Weekly Vegetable Vendor', vpa: 'vendor123@okbank', isNew: false }, user: { avgTransaction: 400 }, behavior: { interactionSpeed: 'normal' }, context: { precededByUnknownCall: false, isKnownMerchantLocation: true, isIosHighRisk: false } }, medium_risk: { amount: 3500, recipient: { name: 'Kiosk Owner', vpa: 'randomperson@okbank', isNew: true }, user: { avgTransaction: 600 }, behavior: { interactionSpeed: 'normal' }, context: { precededByUnknownCall: false, isKnownMerchantLocation: true, isIosHighRisk: false } }, android_high_risk: { amount: 25000, recipient: { name: 'Suraksha Bank Verification', vpa: 'scammer99@okbank', isNew: true }, user: { avgTransaction: 1000 }, behavior: { interactionSpeed: 'high' }, context: { precededByUnknownCall: true, isKnownMerchantLocation: false, isIosHighRisk: false } }, ios_high_risk: { amount: 25000, recipient: { name: 'Suraksha Bank Verification', vpa: 'scammer99@okbank', isNew: true }, user: { avgTransaction: 1000 }, behavior: { interactionSpeed: 'high' }, context: { precededByUnknownCall: false, isKnownMerchantLocation: false, isIosHighRisk: true } } };
+                        function simulateTransaction(riskLevel) { currentTransaction = scenarios[riskLevel]; consentResponses = {}; if (currentTransaction.context.isKnownMerchantLocation) { showModal('geolocation-consent-modal'); } else if (currentTransaction.context.precededByUnknownCall) { showModal('call-log-consent-modal'); } else { analyzeAndProceed(); } }
+                        function handleConsent(type, granted) { consentResponses[type] = granted; if (type === 'geolocation') hideModal('geolocation-consent-modal'); else if (type === 'call_log') hideModal('call-log-consent-modal'); if (type === 'geolocation' && currentTransaction.context.precededByUnknownCall) { showModal('call-log-consent-modal'); } else { analyzeAndProceed(); } }
+                        async function analyzeAndProceed() { showScreen('loading-screen'); const apiResponse = await fetchRiskScoreFromAPI(currentTransaction, consentResponses); hideScreen('loading-screen'); if (!apiResponse.success) { showResult(false, 'Transaction Failed', \`Error: \${apiResponse.error}. Please try again.\`); return; } currentTransaction.qrInfo = apiResponse.qrInfo; const riskScore = apiResponse.riskScore; console.log(\`API Response | Risk Score: \${riskScore.toFixed(2)} | Verified: \${currentTransaction.qrInfo.isVerified}\`); if (riskScore >= 0.8) { document.getElementById('direct-challenge-amount').innerText = \`₹\${currentTransaction.amount.toLocaleString('en-IN')}\`; showModal('direct-challenge-modal'); } else if (riskScore >= 0.4) { showModal('categorization-modal'); } else { showPaymentScreen(); } }
+                        function handleCategorization(category) { hideModal('categorization-modal'); showPaymentScreen(); }
+                        function handleDirectChallenge(proceed) { hideModal('direct-challenge-modal'); if (proceed) { SecureAPI.sendSilentAlert(currentTransaction); startTimeLock(); } else { showResult(false, 'Payment Cancelled', 'You have successfully stopped a potentially fraudulent transaction. Your money is safe.'); } }
+                        function startTimeLock() { showScreen('time-lock-screen'); let duration = 30; const timerElement = document.getElementById('countdown-timer'); countdownInterval = setInterval(() => { const minutes = Math.floor(duration / 60); const seconds = duration % 60; timerElement.textContent = \`\${String(minutes).padStart(2, '0')}:\${String(seconds).padStart(2, '0')}\`; if (--duration < 0) { clearInterval(countdownInterval); hideScreen('time-lock-screen'); showModal('post-hold-confirm-modal'); } }, 1000); }
+                        function handlePostHoldConfirmation(proceed) { hideModal('post-hold-confirm-modal'); if (proceed) { if (currentTransaction.context.precededByUnknownCall || currentTransaction.context.isIosHighRisk) { startThreeStepVerification(); } else { showPaymentScreen(); } } else { showResult(false, 'Payment Cancelled', 'You chose to cancel the payment after the security hold. Your money is safe.'); } }
+                        function startThreeStepVerification() { showModal('bank-otp-modal'); }
+                        function handleOtpVerification(step) { const correctOtp = "123456"; let input, error; if (step === 'bank') { input = document.getElementById('bank-otp-input'); error = document.getElementById('bank-otp-error'); } else if (step === 'email') { input = document.getElementById('email-otp-input'); error = document.getElementById('email-otp-error'); } else { input = document.getElementById('sms-otp-input'); error = document.getElementById('sms-otp-error'); } if (input.value === correctOtp) { error.classList.add('hidden'); hideModal(\`\${step}-otp-modal\`); if (step === 'bank') showModal('email-otp-modal'); else if (step === 'email') showModal('sms-otp-modal'); else if (step === 'sms') showPaymentScreen(); } else { error.classList.remove('hidden'); } }
+                        function showPaymentScreen() { showScreen('payment-screen'); document.getElementById('recipient-name').innerText = currentTransaction.recipient.name; document.getElementById('recipient-vpa').innerText = currentTransaction.recipient.vpa; document.getElementById('payment-amount').innerText = \`₹\${currentTransaction.amount.toLocaleString('en-IN')}\`; const badge = document.getElementById('verification-badge'); if (currentTransaction.qrInfo && currentTransaction.qrInfo.isVerified) { document.getElementById('rating-stars').innerText = \`★ \${currentTransaction.qrInfo.rating.toFixed(1)}\`; badge.classList.remove('hidden'); } else { badge.classList.add('hidden'); } }
+                        function processPayment() { showResult(true, 'Payment Successful', \`You have paid ₹\${currentTransaction.amount.toLocaleString('en-IN')} to \${currentTransaction.recipient.name}.\`); }
+                        function showResult(success, title, message) { showScreen('result-screen'); const resultIcon = document.getElementById('result-icon'); if (success) { resultIcon.className = 'mx-auto w-20 h-20 rounded-full flex items-center justify-center mb-4 bg-green-100'; resultIcon.innerHTML = \`<svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>\`; } else { resultIcon.className = 'mx-auto w-20 h-20 rounded-full flex items-center justify-center mb-4 bg-red-100'; resultIcon.innerHTML = \`<svg class="w-12 h-12 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>\`; } document.getElementById('result-title').innerText = title; document.getElementById('result-message').innerText = message; }
+                        function resetSimulation() { clearInterval(countdownInterval); showScreen('main-content'); currentTransaction = {}; consentResponses = {}; }
+                        const allScreens = ['main-content', 'loading-screen', 'time-lock-screen', 'payment-screen', 'result-screen'];
+                        function showScreen(screenId) { allScreens.forEach(id => { const screen = document.getElementById(id); if (id === screenId) screen.classList.remove('hidden'); else screen.classList.add('hidden'); }); }
+                        function hideScreen(screenId) { document.getElementById(screenId).classList.add('hidden'); }
+                        function showModal(modalId) { const modal = document.getElementById(modalId); if (modal) { modal.classList.remove('hidden'); modal.classList.add('flex'); } }
+                        function hideModal(modalId) { const modal = document.getElementById(modalId); if (modal) { modal.classList.add('hidden'); modal.classList.remove('flex'); } }
+                        function initializeApp() { document.getElementById('copyright-footer').innerText = \`Copyright (c) 2025 Pranay Rishi a.k.a. AT. All Rights Reserved.\`; document.getElementById('btn-low-risk').addEventListener('click', () => simulateTransaction('low_risk')); document.getElementById('btn-medium-risk').addEventListener('click', () => simulateTransaction('medium_risk')); document.getElementById('btn-android-high-risk').addEventListener('click', () => simulateTransaction('android_high_risk')); document.getElementById('btn-ios-high-risk').addEventListener('click', () => simulateTransaction('ios_high_risk')); document.getElementById('btn-pay').addEventListener('click', processPayment); document.getElementById('btn-new-simulation').addEventListener('click', resetSimulation); document.getElementById('btn-cat-shopping').addEventListener('click', () => handleCategorization('Shopping')); document.getElementById('btn-cat-family').addEventListener('click', () => handleCategorization('Family/Friend')); document.getElementById('btn-challenge-cancel').addEventListener('click', () => handleDirectChallenge(false)); document.getElementById('btn-challenge-proceed').addEventListener('click', () => handleDirectChallenge(true)); document.getElementById('btn-geo-allow').addEventListener('click', () => handleConsent('geolocation', true)); document.getElementById('btn-geo-deny').addEventListener('click', () => handleConsent('geolocation', false)); document.getElementById('btn-call-allow').addEventListener('click', () => handleConsent('call_log', true)); document.getElementById('btn-call-deny').addEventListener('click', () => handleConsent('call_log', false)); document.getElementById('btn-post-hold-proceed').addEventListener('click', () => handlePostHoldConfirmation(true)); document.getElementById('btn-post-hold-cancel').addEventListener('click', () => handlePostHoldConfirmation(false)); document.getElementById('btn-verify-bank-otp').addEventListener('click', () => handleOtpVerification('bank')); document.getElementById('btn-verify-email-otp').addEventListener('click', () => handleOtpVerification('email')); document.getElementById('btn-verify-sms-otp').addEventListener('click', () => handleOtpVerification('sms')); }
+                        document.addEventListener('DOMContentLoaded', initializeApp);
+                    <\/script>
+                </body>
+                </html>
+            `;
+
+            liveDemoBtn.addEventListener('click', () => {
+                demoIframe.src = 'data:text/html;charset=utf-8,' + encodeURIComponent(demoHtmlContent);
+                openModal('demo-modal');
+            });
+
+            demoModalClose.addEventListener('click', () => {
+                closeModal('demo-modal');
+                demoIframe.src = 'about:blank'; // Clear iframe content
+            });
+
+            // --- Info Modal ---
+            const readMoreBtn = document.getElementById('read-more-btn');
+            const infoModalClose = document.getElementById('info-modal-close');
+            
+            readMoreBtn.addEventListener('click', () => openModal('info-modal'));
+            infoModalClose.addEventListener('click', () => closeModal('info-modal'));
+
+            // --- Close modals on overlay click ---
+            document.querySelectorAll('.modal-overlay').forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        closeModal(modal.id);
+                    }
+                });
+            });
         });
     </script>
 </body>

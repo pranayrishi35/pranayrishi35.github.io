@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pranayrishi35.github.io/sitemap.xml

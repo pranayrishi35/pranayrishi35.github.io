@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pranay Rishi — Cybersecurity & Tech Leader</title>
+  <meta name="description" content="Portfolio of Pranay Rishi — B.Tech CSE at Lovely Professional University (LPU). Cybersecurity professional, national debater, and hackathon finalist.">
+  <meta property="og:title" content="Pranay Rishi — Cybersecurity & Tech Leader">
+  <meta property="og:description" content="Dynamic portfolio showcasing projects, experience, and achievements.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2300f5ff'/%3E%3Ctext x='50' y='68' font-family='monospace' font-size='46' fill='%23060a14' text-anchor='middle'%3EPR%3C/text%3E%3C/svg%3E">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- ───────────── NAVIGATION ───────────── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">PR<span class="accent-dot">.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero"          class="nav-link active" data-section="hero">Home</a></li>
+        <li><a href="#about"         class="nav-link" data-section="about">About</a></li>
+        <li><a href="#skills"        class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#experience"    class="nav-link" data-section="experience">Journey</a></li>
+        <li><a href="#projects"      class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#achievements"  class="nav-link" data-section="achievements">Wins</a></li>
+        <li><a href="#contact"       class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="https://www.linkedin.com/in/pranay-rishi-atpr3105" target="_blank" rel="noopener me" class="nav-li-btn" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ───────────── HERO ───────────── -->
+  <section id="hero" class="hero">
+    <canvas id="matrix-canvas"></canvas>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-pulse"></span>
+        Open to Internships
+      </div>
+
+      <h1 class="hero-title">
+        <span class="title-word" data-text="Pranay">Pranay</span>
+        <span class="title-word clr-primary" data-text="Rishi">Rishi</span>
+      </h1>
+
+      <p class="hero-sub">
+        I craft <span id="typed-text" class="typed-accent"></span>
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">
+          <span>View My Work</span><i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          <span>Let's Talk</span>
+        </a>
+        <a href="resume.pdf" download class="btn btn-cv" title="Add resume.pdf to portfolio folder">
+          <i class="fas fa-download"></i><span>Download CV</span>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-n" data-target="50">0</span><span>+</span><div class="stat-l">Voice&#8209;Overs</div></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-n" data-target="7">0</span><span>+</span><div class="stat-l">Projects</div></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-n" data-target="3">0</span><div class="stat-l">MUN Awards</div></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-n" data-target="1">0</span><span>K+</span><div class="stat-l">Connections</div></div>
+      </div>
+    </div>
+
+    <div class="scroll-cue">
+      <span>Scroll to explore</span>
+      <div class="scroll-cue-line"></div>
+    </div>
+  </section>
+
+  <!-- ───────────── ABOUT ───────────── -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-visual" id="about-visual">
+          <div class="avatar-frame">
+            <div class="pfp-ring">
+              <img src="images/pfp.png" alt="Pranay Rishi" class="pfp-img" loading="lazy" />
+            </div>
+          </div>
+          <div class="about-tags">
+            <span class="tag">B.Tech CSE</span>
+            <span class="tag">LPU · 2027</span>
+            <span class="tag">Phagwara, Punjab</span>
+          </div>
+        </div>
+
+        <div class="about-text-col" id="about-text">
+          <div class="section-label">About Me</div>
+          <h2 class="section-title">Cybersecurity meets <em>Leadership</em></h2>
+          <p class="reveal-p">Cybersecurity-focused B.Tech Computer Engineering student at <strong>Lovely Professional University (LPU)</strong> with hands-on experience in threat analysis, log inspection, incident response simulations, network security fundamentals, and OSINT investigation.</p>
+          <p class="reveal-p">Former Co-CEO of <strong>Iqlipse</strong> — a student innovation hub — and national-level debater with strong communication, voice-over, and project management skills. Proven ability to implement security solutions and manage cross-functional teams.</p>
+          <p class="reveal-p">Currently seeking a <strong>Cybersecurity Analyst</strong> or <strong>Software Engineering</strong> internship to leverage technical expertise and leadership in a dynamic environment.</p>
+          <a href="mailto:pranayrishi1418@gmail.com" class="btn btn-primary about-cta">
+            <span>Get in Touch</span><i class="fas fa-envelope"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── SKILLS ───────────── -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-label text-center">What I Do</div>
+      <h2 class="section-title text-center">Core <em>Skills</em></h2>
+      <div class="skills-grid" id="skills-grid">
+
+        <!-- Each skill-card: data-level drives ring animation -->
+        <div class="skill-card glass-card" data-level="85">
+          <div class="skill-icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="ring-wrap">
+            <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" class="ring-bg"/><circle cx="40" cy="40" r="32" class="ring-fill"/></svg>
+            <span class="ring-pct">85%</span>
+          </div>
+          <h3>Cybersecurity</h3>
+          <p>Threat Analysis · Incident Response · Log Inspection</p>
+        </div>
+
+        <div class="skill-card glass-card" data-level="80">
+          <div class="skill-icon"><i class="fas fa-code"></i></div>
+          <div class="ring-wrap">
+            <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" class="ring-bg"/><circle cx="40" cy="40" r="32" class="ring-fill"/></svg>
+            <span class="ring-pct">80%</span>
+          </div>
+          <h3>Web Development</h3>
+          <p>HTML · CSS · JavaScript · UI/UX</p>
+        </div>
+
+        <div class="skill-card glass-card" data-level="70">
+          <div class="skill-icon"><i class="fab fa-aws"></i></div>
+          <div class="ring-wrap">
+            <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" class="ring-bg"/><circle cx="40" cy="40" r="32" class="ring-fill"/></svg>
+            <span class="ring-pct">70%</span>
+          </div>
+          <h3>AWS Cloud</h3>
+          <p>Cloud Practitioner · Architecture Basics</p>
+        </div>
+
+        <div class="skill-card glass-card" data-level="85">
+          <div class="skill-icon"><i class="fas fa-diagram-project"></i></div>
+          <div class="ring-wrap">
+            <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" class="ring-bg"/><circle cx="40" cy="40" r="32" class="ring-fill"/></svg>
+            <span class="ring-pct">85%</span>
+          </div>
+          <h3>Project Management</h3>
+          <p>Risk Mitigation · Team Leadership · Delivery</p>
+        </div>
+
+        <div class="skill-card glass-card" data-level="90">
+          <div class="skill-icon"><i class="fas fa-microphone-lines"></i></div>
+          <div class="ring-wrap">
+            <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" class="ring-bg"/><circle cx="40" cy="40" r="32" class="ring-fill"/></svg>
+            <span class="ring-pct">90%</span>
+          </div>
+          <h3>Public Speaking</h3>
+          <p>Debate · MUN · Oratory · Voice-Over</p>
+        </div>
+
+        <div class="skill-card glass-card" data-level="75">
+          <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+          <div class="ring-wrap">
+            <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" class="ring-bg"/><circle cx="40" cy="40" r="32" class="ring-fill"/></svg>
+            <span class="ring-pct">75%</span>
+          </div>
+          <h3>Network Security</h3>
+          <p>TCP/IP · Firewalls · VPNs · Protocols</p>
+        </div>
+
+        <div class="skill-card glass-card" data-level="65">
+          <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+          <div class="ring-wrap">
+            <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" class="ring-bg"/><circle cx="40" cy="40" r="32" class="ring-fill"/></svg>
+            <span class="ring-pct">65%</span>
+          </div>
+          <h3>Embedded Systems</h3>
+          <p>Arduino · Sensors · C Programming</p>
+        </div>
+
+        <div class="skill-card glass-card" data-level="88">
+          <div class="skill-icon"><i class="fas fa-headphones-simple"></i></div>
+          <div class="ring-wrap">
+            <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" class="ring-bg"/><circle cx="40" cy="40" r="32" class="ring-fill"/></svg>
+            <span class="ring-pct">88%</span>
+          </div>
+          <h3>Audio Production</h3>
+          <p>Audacity · Adobe Audition · Post-Production</p>
+        </div>
+
+        <div class="skill-card glass-card" data-level="78">
+          <div class="skill-icon"><i class="fas fa-magnifying-glass"></i></div>
+          <div class="ring-wrap">
+            <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" class="ring-bg"/><circle cx="40" cy="40" r="32" class="ring-fill"/></svg>
+            <span class="ring-pct">78%</span>
+          </div>
+          <h3>OSINT &amp; Intelligence</h3>
+          <p>Google Dorking · Web-OSINT · Social-OSINT</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── EXPERIENCE ───────────── -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-label">My Story</div>
+      <h2 class="section-title">The <em>Journey</em></h2>
+
+      <div class="timeline" id="timeline">
+        <div class="tl-line" id="tl-line"></div>
+
+        <div class="tl-entry" data-side="left">
+          <div class="tl-dot"></div>
+          <div class="tl-card glass-card">
+            <div class="tl-head">
+              <div class="tl-icon"><i class="fas fa-building"></i></div>
+              <div><h3>Co-CEO</h3><h4>Student Innovation Hub</h4></div>
+            </div>
+            <p class="tl-date"><i class="far fa-calendar-alt"></i> Aug 2024 — Apr 2025</p>
+            <ul>
+              <li>Spearheaded strategic direction for an unconventional student organisation</li>
+              <li>Led cross-functional teams to execute high-engagement campus events</li>
+              <li>Built a culture of innovation and collaborative problem-solving</li>
+            </ul>
+            <span class="tl-badge">Leadership</span>
+          </div>
+        </div>
+
+        <div class="tl-entry" data-side="right">
+          <div class="tl-dot"></div>
+          <div class="tl-card glass-card">
+            <div class="tl-head">
+              <div class="tl-icon"><i class="fas fa-solar-panel"></i></div>
+              <div><h3>Project Manager</h3><h4>Green Care Energies · Intern</h4></div>
+            </div>
+            <p class="tl-date"><i class="far fa-calendar-alt"></i> May 2024 — Feb 2025</p>
+            <ul>
+              <li>Managed sustainable energy projects from inception to completion</li>
+              <li>Implemented risk mitigation and quality assurance strategies</li>
+              <li>Coordinated stakeholder communications and deliverables</li>
+            </ul>
+            <span class="tl-badge">Operations</span>
+          </div>
+        </div>
+
+        <div class="tl-entry" data-side="left">
+          <div class="tl-dot"></div>
+          <div class="tl-card glass-card">
+            <div class="tl-head">
+              <div class="tl-icon"><i class="fas fa-microphone"></i></div>
+              <div><h3>Voice-Over Artist</h3><h4>YouTube & Digital Media · Freelance</h4></div>
+            </div>
+            <p class="tl-date"><i class="far fa-calendar-alt"></i> Jan 2022 — Present</p>
+            <ul>
+              <li>Delivered professional voice-overs for 50+ videos across niches</li>
+              <li>Managed end-to-end audio production using Audacity & Adobe Audition</li>
+              <li>Built a consistent client base through quality and reliability</li>
+            </ul>
+            <span class="tl-badge ongoing">Ongoing</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── PROJECTS ───────────── -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-label">What I've Built</div>
+      <h2 class="section-title">Project <em>Spotlight</em></h2>
+
+      <!-- Featured -->
+      <div class="featured-project glass-card" id="featured-project">
+        <div class="fp-visual">
+          <div class="fp-mockup">
+            <div class="mockup-bar"><span></span><span></span><span></span></div>
+            <div class="mockup-body">
+              <div class="mockup-icon"><i class="fas fa-shield-halved"></i></div>
+              <div class="mockup-title">Suraksha QR</div>
+              <div class="mockup-sub">Analysing transaction risk…</div>
+              <div class="mockup-progress"><div class="mockup-progress-fill"></div></div>
+              <div class="mockup-status">✓ Transaction Verified — Low Risk</div>
+            </div>
+          </div>
+        </div>
+        <div class="fp-details">
+          <div class="fp-label">⭐ Featured Project</div>
+          <h3>Project Suraksha QR</h3>
+          <p class="fp-headline">A Modern 2FA & Anti-Fraud System for UPI Payments</p>
+          <p class="fp-desc">Combats rising UPI scams with a multi-layered security framework — dynamic risk analysis, time-locked suspicious transactions, and robust three-factor authentication.</p>
+          <div class="tech-stack">
+            <span>JavaScript</span><span>HTML5</span><span>Tailwind CSS</span><span>Security Analysis</span>
+          </div>
+          <div class="fp-links">
+            <a href="https://github.com/pranayrishi35/Project-Suraksha-QR" target="_blank" rel="noopener" class="btn btn-primary">
+              <i class="fab fa-github"></i><span>View Source</span>
+            </a>
+            <a href="https://pranayrishi35.github.io/Project-Suraksha-QR/" target="_blank" rel="noopener" class="btn btn-ghost">
+              <i class="fas fa-external-link-alt"></i><span>Live Demo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── F.E.A.T. — Hackathon Featured Project ── -->
+      <div class="featured-project feat-card glass-card" id="feat-project">
+        <div class="fp-details">
+          <div class="fp-label">🏆 Electrothon 8.0 · Google DeepMind Track · Top 10 / 138 Teams</div>
+          <h3>F.E.A.T. — Field Enhanced Awareness Tech</h3>
+          <p class="fp-headline">Edge-Native Smart Visor for Tactical Operatives</p>
+          <p class="fp-desc">An edge-AI tactical HUD that automates real-time threat identification in high-stress environments. Built on Raspberry Pi 4, it fuses YOLOv8 object detection with Google Gemini multimodal reasoning, camera-based rPPG heart-rate monitoring, and an anti-adversarial pipeline — delivering threat overlays, zone radar, and survival directives directly to a wearable visor. All AI runs locally with zero internet dependency.</p>
+          <div class="tech-stack">
+            <span>Python</span><span>YOLOv8</span><span>OpenCV</span><span>Gemini AI</span><span>Raspberry Pi 4</span><span>Arduino</span><span>Node.js</span><span>rPPG</span>
+          </div>
+          <div class="feat-highlights">
+            <div class="fh-item"><i class="fas fa-shield-halved"></i><span>Anti-Adversarial Pipeline</span></div>
+            <div class="fh-item"><i class="fas fa-eye"></i><span>Night Vision + Thermal HUD</span></div>
+            <div class="fh-item"><i class="fas fa-heart-pulse"></i><span>Camera rPPG Biometrics</span></div>
+            <div class="fh-item"><i class="fas fa-brain"></i><span>Gemini Tactical AI Agent</span></div>
+          </div>
+          <div class="fp-links">
+            <a href="https://github.com/archit2400/feat" target="_blank" rel="noopener" class="btn btn-primary">
+              <i class="fab fa-github"></i><span>View Source</span>
+            </a>
+          </div>
+        </div>
+        <div class="fp-visual">
+          <div class="fp-mockup feat-mockup">
+            <div class="mockup-bar"><span></span><span></span><span></span></div>
+            <div class="mockup-body feat-hud">
+              <div class="hud-top">
+                <div class="hud-badge">THREAT ASSESSMENT ACTIVE</div>
+                <div class="hud-vital"><i class="fas fa-heart-pulse"></i> <span class="hud-hr">72 bpm</span></div>
+              </div>
+              <div class="hud-screen">
+                <div class="hud-target" style="top:30%;left:20%"><div class="hud-box">TARGET 1<br><small>97% ⚠ HIGH</small></div></div>
+                <div class="hud-target safe" style="top:55%;left:60%"><div class="hud-box">TARGET 2<br><small>12% ✓ LOW</small></div></div>
+                <div class="hud-crosshair"></div>
+              </div>
+              <div class="hud-bottom">
+                <div class="hud-zone">ZONE: <span class="hud-z">CENTER</span></div>
+                <div class="hud-ai">IQ AGENT: <span class="hud-rec">FLANK LEFT</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other Projects -->
+      <h3 class="sub-heading">More Projects</h3>
+      <div class="projects-grid" id="projects-grid">
+
+        <div class="project-card glass-card">
+          <div class="pc-icon"><i class="fas fa-robot"></i></div>
+          <h3>AI Directory Management</h3>
+          <p>Python-based desktop app reimagining file management with AI, dynamic visualisations, and a custom recycle bin.</p>
+          <div class="tech-stack small"><span>Python</span><span>AI/ML</span><span>Desktop</span></div>
+          <a href="#" class="pc-link">Coming Soon <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="pc-icon"><i class="fas fa-paw"></i></div>
+          <h3>Virtual Zoo</h3>
+          <p>Interactive web-based virtual zoo demonstrating front-end skills and dynamic content handling with creative UI design.</p>
+          <div class="tech-stack small"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+          <a href="https://github.com/agmanyadav/Virtual-zoo-SuperKings-CB228" target="_blank" rel="noopener" class="pc-link">GitHub <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="pc-icon"><i class="fas fa-fire-flame-curved"></i></div>
+          <h3>Fire/Smoke Sensor System</h3>
+          <p>Embedded system using Arduino Uno and MQ-2 sensor to detect smoke/fire, triggering audible and visual alarms.</p>
+          <div class="tech-stack small"><span>Arduino</span><span>C</span><span>MQ-2</span></div>
+          <a href="#" class="pc-link">Details Soon <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="pc-icon"><i class="fas fa-flag"></i></div>
+          <h3>ReportIT</h3>
+          <p>A community-driven civic issue reporting platform enabling citizens to flag and track local problems for rapid response and real-world impact.</p>
+          <div class="tech-stack small"><span>Web</span><span>Community</span><span>Civic Tech</span></div>
+          <a href="https://www.linkedin.com/in/pranay-rishi-atpr3105" target="_blank" rel="noopener" class="pc-link">LinkedIn <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="pc-icon"><i class="fas fa-chart-bar"></i></div>
+          <h3>Power BI Sales Dashboard</h3>
+          <p>Analysed over 1 million online store customer transactions to surface key business insights — built as an interactive Power BI dashboard.</p>
+          <div class="tech-stack small"><span>Power BI</span><span>Data Analysis</span><span>Business Intelligence</span></div>
+          <a href="https://www.linkedin.com/in/pranay-rishi-atpr3105" target="_blank" rel="noopener" class="pc-link">LinkedIn <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── ACHIEVEMENTS ───────────── -->
+  <section id="achievements" class="section">
+    <div class="container">
+      <div class="section-label">Recognition</div>
+      <h2 class="section-title">Key <em>Wins</em></h2>
+      <div class="ach-grid">
+
+        <div class="ach-card glass-card hackathon-ach">
+          <div class="ach-icon hackathon"><i class="fas fa-ranking-star"></i></div>
+          <div>
+            <h3>Top 10 — Google DeepMind Track</h3>
+            <p class="ach-sub">Electrothon 8.0 · NIT Hamirpur · 138 Teams Nationwide</p>
+            <p>Built F.E.A.T., an edge-AI tactical visor fusing YOLOv8, Google Gemini, and rPPG biometrics on Raspberry Pi 4. Secured Top 10 among 138 teams from across the nation in the prestigious Google DeepMind track.</p>
+          </div>
+        </div>
+
+        <div class="ach-card glass-card">
+          <div class="ach-icon gold"><i class="fas fa-trophy"></i></div>
+          <div>
+            <h3>National Debate Championship</h3>
+            <p class="ach-sub">Runner-Up · AMU National Debate 2024</p>
+            <p>Represented NIT Hamirpur, securing a top position through critical thinking and teamwork.</p>
+          </div>
+        </div>
+
+        <div class="ach-card glass-card">
+          <div class="ach-icon silver"><i class="fas fa-award"></i></div>
+          <div>
+            <h3>High Commendation — Manthan MUN</h3>
+            <p class="ach-sub">Lok Sabha Committee · 2025</p>
+            <p>Awarded for exceptional performance debating critical national policy issues.</p>
+          </div>
+        </div>
+
+        <div class="ach-card glass-card">
+          <div class="ach-icon cyan"><i class="fas fa-comment-dots"></i></div>
+          <div>
+            <h3>Verbal Mention — Inaugural MUN</h3>
+            <p class="ach-sub">UNGA · Russian Federation Delegate</p>
+            <p>Recognised for diplomatic skills and active participation as delegate of the Russian Federation.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── CERTIFICATIONS ───────────── -->
+  <section id="certifications" class="section">
+    <div class="container">
+      <div class="section-label">Credentials</div>
+      <h2 class="section-title">Licences & <em>Certifications</em></h2>
+      <div class="certs-grid" id="certs-grid">
+
+        <div class="cert-card glass-card" data-tooltip="Issued Mar 2026"><div class="cert-org">UC Irvine</div><h4>Types of Conflict</h4><div class="cert-badge"><i class="fas fa-scale-balanced"></i> Negotiation</div></div>
+        <div class="cert-card glass-card" data-tooltip="Issued Jul 2025"><div class="cert-org">Forage</div><h4>Tata &amp; Deloitte Cybersecurity Simulations</h4><div class="cert-badge"><i class="fas fa-shield-halved"></i> Cybersecurity</div></div>
+        <div class="cert-card glass-card" data-tooltip="Issued Sep 2024"><div class="cert-org">Google</div><h4>Bits and Bytes of Computer Networking</h4><div class="cert-badge"><i class="fas fa-network-wired"></i> Networking</div></div>
+        <div class="cert-card glass-card" data-tooltip="Issued 2024"><div class="cert-org">IBM</div><h4>Introduction to Cybersecurity</h4><div class="cert-badge"><i class="fas fa-lock"></i> Security</div></div>
+        <div class="cert-card glass-card" data-tooltip="Ongoing"><div class="cert-org">TryHackMe</div><h4>Offensive &amp; Defensive Security Intro</h4><div class="cert-badge"><i class="fas fa-user-ninja"></i> Red &amp; Blue Team</div></div>
+        <div class="cert-card glass-card" data-tooltip="In Progress"><div class="cert-org">AWS</div><h4>AWS Certified Cloud Practitioner</h4><div class="cert-badge"><i class="fab fa-aws"></i> Cloud</div></div>
+        <div class="cert-card glass-card" data-tooltip="Issued Apr 2024"><div class="cert-org">Meta</div><h4>Introduction to Databases</h4><div class="cert-badge"><i class="fas fa-database"></i> Database</div></div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── CONTACT ───────────── -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-wrapper" id="contact-wrapper">
+        <div class="section-label">Say Hello</div>
+        <h2 class="section-title">Let's <em>Connect</em></h2>
+        <p class="contact-desc">Actively seeking internships in Cybersecurity and Software Engineering. Have a project or opportunity? I'd love to hear from you.</p>
+        <div class="contact-links">
+          <a href="mailto:pranayrishi1418@gmail.com" class="contact-link email-link">
+            <div class="cl-icon"><i class="fas fa-envelope"></i></div>
+            <div><div class="cl-label">Email</div><div class="cl-val">pranayrishi1418@gmail.com</div></div>
+            <i class="fas fa-arrow-right cl-arrow"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/pranay-rishi-atpr3105" target="_blank" rel="noopener me" class="contact-link linkedin-link">
+            <div class="cl-icon"><i class="fab fa-linkedin-in"></i></div>
+            <div><div class="cl-label">LinkedIn</div><div class="cl-val">pranay-rishi-atpr3105</div></div>
+            <i class="fas fa-arrow-right cl-arrow"></i>
+          </a>
+          <a href="https://github.com/pranayrishi35" target="_blank" rel="noopener me" class="contact-link github-link">
+            <div class="cl-icon"><i class="fab fa-github"></i></div>
+            <div><div class="cl-label">GitHub</div><div class="cl-val">pranayrishi35</div></div>
+            <i class="fas fa-arrow-right cl-arrow"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── FOOTER ───────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="nav-logo">PR<span class="accent-dot">.</span></span>
+        <p>© 2025 Pranay Rishi. Crafted with 💙 and late nights.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/pranayrishi35" target="_blank" rel="noopener me" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/pranay-rishi-atpr3105" target="_blank" rel="noopener me" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(r => console.log('[SW] Registered:', r.scope))
+          .catch(e => console.warn('[SW] Registration failed:', e));
+      });
+    }
+  </script>
+</body>
+</html>

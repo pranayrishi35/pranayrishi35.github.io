@@ -625,6 +625,11 @@ em { color: var(--primary); font-style: normal; }
   border: 1px solid var(--border);
 }
 .tl-badge.ongoing { background: var(--accent-dim); color: var(--accent); border-color: rgba(139,92,246,0.2); }
+/* Multiple badge row */
+.tl-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.tl-tags .tl-badge { margin-top: 0; }
+.tl-badge-violet { background: var(--accent-dim); color: var(--accent); border-color: rgba(139,92,246,0.2); }
+
 
 /* ═══════════════════════════════════════════════
    PROJECTS
